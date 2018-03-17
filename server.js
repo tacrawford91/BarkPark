@@ -17,14 +17,14 @@ app.use(express.static("public"));
 
 
 
-// var htmlRoutes = require("./app/controller/htmlRoutes.js");
+var htmlRoutes = require("./app/controller/htmlRoutes.js");
 var parkApiRoutes = require("./app/controller/parkApiRoutes.js");
-// var userApiRoutes = require("./app/controller/userApiRoutes.js");
+var userApiRoutes = require("./app/controller/userApiRoutes.js");
 
 //Use routes - 
 // app.use("/", htmlRoutes);
 app.use("/api", parkApiRoutes);
-// app.use("/api", userApiRoutes);
+app.use("/api", userApiRoutes);
 
 
 

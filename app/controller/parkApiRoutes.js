@@ -4,6 +4,8 @@ var router = express.Router();
 // Requiring models
 var db = require("../models");
 
+//socket io
+var io = require('socket.io')(http);
 
 //Get single park
 router.get("/park/:id", (req,res)=> {
@@ -34,7 +36,7 @@ router.put("/park/:id", (req,res)=> {
         park_name: req.body.park_name,
         address: req.body.address
     }
-    db.Park.update(updatedPark, {where: {id: req.param.id}}).then( (data) => {
+    db.Park.update(updatedPark, {where: {id: req.params.id}}).then( (data) => {
         console.log(data);
         res.json(data)
     });
