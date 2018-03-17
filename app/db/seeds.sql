@@ -10,17 +10,20 @@ INSERT INTO Parks (park_name, address_lat, address_long) VALUES ("Hamlin Dog Par
 {
 	"park_name": "Wiggly Field",
 	"address_lat": "41.930533",
-	"address_long": "-87.653434"
+	"address_long": "-87.653434",
+	"dog_number": 4
 }
 
 {
 	"park_name": "Belmont Dog Beach",
 	"address_lat": "41.945151",
-	"address_long": "-87.640307"
+	"address_long": "-87.640307",
+	"dog_number": 0
 } 
 
 {
 	"park_name": "Hamlin Dog Park",
 	"address_lat": "41.936824",
-	"address_long": "-87.679481"
+	"address_long": "-87.679481",
+	"dog_number": 2
 }
