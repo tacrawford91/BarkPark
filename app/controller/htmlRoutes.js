@@ -13,6 +13,10 @@ router.get("/", (req,res) => {
 })
 
 //sign up form
+router.get("/newDog", (req,res) => {
+    console.log("I heareareasr you")
+    res.render("form.html");
+})
 
 
 //map page

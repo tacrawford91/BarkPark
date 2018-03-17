@@ -22,7 +22,7 @@ var parkApiRoutes = require("./app/controller/parkApiRoutes.js");
 var userApiRoutes = require("./app/controller/userApiRoutes.js");
 
 //Use routes - 
-// app.use("/", htmlRoutes);
+app.use("/", htmlRoutes);
 app.use("/api", parkApiRoutes);
 app.use("/api", userApiRoutes);
 

@@ -1,28 +1,26 @@
 var map;
 var infowindow;
-
 var myMarker = [];
-
-
 var newMarker2 = [];
-
+var lat = [];
+var long = [];
+var parkName = [];
+var address = [];
 function initMap() {
     var chicago = {
         lat: 41.8781,
         lng: -87.6298
     };
     var icon = {
-        url: "./assets/image/dog.png",
+        url: "/dog.png",
         labelOrigin: new google.maps.Point(9, -8),
         scaledSize: new google.maps.Size(20, 20),
         origin: new google.maps.Point(0, 0), // origin
-
     }
     map = new google.maps.Map(document.getElementById('map'), {
         center: chicago,
         zoom: 11
     });
-
     var autocomplete = new google.maps.places.Autocomplete(
         /** @type {!HTMLInputElement} */
         (
@@ -57,7 +55,6 @@ function initMap() {
         map.fitBounds(bounds);
         map.setZoom(10)
         newMarker2.push(marker2);
-
         for (var j = 0; j < newMarker2.length; j++) {
             if (j === 0) {
                 newMarker2[0].setVisible(true)
@@ -73,25 +70,25 @@ function initMap() {
         location: chicago,
         radius: 100000,
         keyword: "dog park"
-
     }, callback);
-
-
-
 }
-
 function callback(results, status) {
-
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
             results[i].number = i;
             createMarker(results[i]);
         }
-        console.log(myMarker[0])
+        // $.ajax({
+        // console.log(myMarker)
+        $.post("/api/park", { "address": address }, function(data) {
+                console.log("nice")
+            })
+            // })
     }
 }
-
 function createMarker(place) {
+    console.log(place)
+    var placeLoc = place.geometry.location;
     var icon = {
         url: "./dog.png",
         labelOrigin: new google.maps.Point(9, -8),
@@ -99,7 +96,6 @@ function createMarker(place) {
         origin: new google.maps.Point(0, 0), // origin
         anchor: new google.maps.Point(11, 40)
     }
-    var placeLoc = place.geometry.location;
     var marker = new google.maps.Marker({
         map: map,
         position: placeLoc,
@@ -107,43 +103,36 @@ function createMarker(place) {
             color: "red",
             text: place.number.toString()
         },
-        icon: icon
+        icon: icon,
     });
     myMarker.push(marker);
-
+    lat.push(marker.position.lat())
+    long.push(marker.position.lng())
+    parkName.push(place.name)
+    address.push(place.vicinity)
     google.maps.event.addListener(marker, 'click', function() {
-
         infowindow.setContent(place.name);
         infowindow.open(map, this);
     });
 }
-
 function removeMarkers() {
     for (var i = 0; i < myMarker.length; i++) {
         myMarker[i].setVisible(false);
-
     }
 }
-
 function addMarkers() {
     for (var k = 0; k < myMarker.length; k++) {
         myMarker[k].setVisible(true);
     }
 }
-
 function removeMarker2() {
     for (var l = 0; l < newMarker2.length; l++) {
         newMarker2[l].setVisible(false);
-
     }
 }
-
 $("#addClass").click(function() {
     $('#sidebar_secondary').addClass('popup-box-on');
 });
-
 $("#removeClass").click(function() {
     $('#sidebar_secondary').removeClass('popup-box-on');
 });
-
-$(".chat_sidebar").draggable()
