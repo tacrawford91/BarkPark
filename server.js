@@ -6,12 +6,12 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 // Requiring our models for syncing
-var db = require("./models");
+var db = require("./app/models");
 
 
 require("./app/controller/htmlRoutes.js")(app);
 require("./app/controller/parkApiRoutes.js")(app);
-require("./app/controller/userApiRoutes.js")(app);
+// require("./app/controller/userApiRoutes.js")(app);
 
 
 //Set Up Middleware 

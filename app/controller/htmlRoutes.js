@@ -4,4 +4,6 @@ var router = express.Router();
 // Requiring models
 var db = require("../models");
 
-
+module.exports = function(app) {
+    
+}
