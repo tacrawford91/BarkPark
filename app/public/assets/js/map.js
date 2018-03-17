@@ -6,13 +6,14 @@ var lat = [];
 var long = [];
 var parkName = [];
 var address = [];
+
 function initMap() {
     var chicago = {
         lat: 41.8781,
         lng: -87.6298
     };
     var icon = {
-        url: "/dog.png",
+        url: "dog.png",
         labelOrigin: new google.maps.Point(9, -8),
         scaledSize: new google.maps.Size(20, 20),
         origin: new google.maps.Point(0, 0), // origin
@@ -72,6 +73,7 @@ function initMap() {
         keyword: "dog park"
     }, callback);
 }
+
 function callback(results, status) {
     if (status === google.maps.places.PlacesServiceStatus.OK) {
         for (var i = 0; i < results.length; i++) {
@@ -80,12 +82,13 @@ function callback(results, status) {
         }
         // $.ajax({
         // console.log(myMarker)
-        $.post("/api/park", { "address": address }, function(data) {
-                console.log("nice")
-            })
-            // })
+        // $.post("/api/park", { "address": address }, function(data) {
+        //         console.log("nice")
+        //     })
+        // })
     }
 }
+
 function createMarker(place) {
     console.log(place)
     var placeLoc = place.geometry.location;
@@ -115,16 +118,19 @@ function createMarker(place) {
         infowindow.open(map, this);
     });
 }
+
 function removeMarkers() {
     for (var i = 0; i < myMarker.length; i++) {
         myMarker[i].setVisible(false);
     }
 }
+
 function addMarkers() {
     for (var k = 0; k < myMarker.length; k++) {
         myMarker[k].setVisible(true);
     }
 }
+
 function removeMarker2() {
     for (var l = 0; l < newMarker2.length; l++) {
         newMarker2[l].setVisible(false);
