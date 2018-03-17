@@ -4,7 +4,7 @@ var router = express.Router();
 // Requiring models
 var db = require("../models");
 
-module.exports = function(app) {
+
     
 router.get("/", (req,res) => {
 
@@ -22,4 +22,4 @@ router.get("/", (req,res) => {
 //park page
 
 
-};
+module.exports = router;
