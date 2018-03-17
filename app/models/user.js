@@ -6,10 +6,7 @@ module.exports = function(sequelize, DataTypes) {
       password: DataTypes.STRING,
       email: DataTypes.STRING,
       dog_name: DataTypes.STRING,
-      dog_type: DataTypes.STRING,
-      dog_color: DataTypes.STRING,
-      dog_weight: DataTypes.INTEGER,
-      dog_rating: DataTypes.INTEGER // not sure about this one...
+      dog_location: DataTypes.INTEGER,
     });
     return User;
   };
