@@ -9,7 +9,7 @@ var db = require("../models");
 router.get("/", (req,res) => {
 
     //send landing page
-    res.render("index",)
+    res.send("main")
 })
 
 //sign up form
