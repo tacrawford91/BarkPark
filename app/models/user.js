@@ -6,7 +6,6 @@ module.exports = function(sequelize, DataTypes) {
       password: DataTypes.STRING,
       email: DataTypes.STRING,
       dog_name: DataTypes.STRING,
-      dog_location: DataTypes.INTEGER,
     });
     return User;
   };
