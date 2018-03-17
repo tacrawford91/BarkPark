@@ -1,4 +1,4 @@
-$(function() {
+
   
     $(".create-form").on("submit", function(event) {
       event.preventDefault();
@@ -11,7 +11,7 @@ $(function() {
       };
   
       // Send the POST request.
-      $.ajax("/api/user", {
+      $.ajax("http://localhost:3000/api/user", {
         type: "POST",
         data: newUser
       }).then(
@@ -21,4 +21,5 @@ $(function() {
         }
       );
     });
-  });
+
+
