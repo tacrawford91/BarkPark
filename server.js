@@ -13,9 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Static directory
-app.use(express.static("public"));
-
-
+app.use(express.static("app/public"));
 
 var htmlRoutes = require("./app/controller/htmlRoutes.js");
 var parkApiRoutes = require("./app/controller/parkApiRoutes.js");
