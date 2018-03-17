@@ -34,7 +34,7 @@ router.put("/park/:id", (req,res)=> {
         park_name: req.body.park_name,
         address: req.body.address
     }
-    db.Park.update(updatedPark, {where: {id: req.param.id}}).then( (data) => {
+    db.Park.update(updatedPark, {where: {id: req.params.id}}).then( (data) => {
         console.log(data);
         res.json(data)
     });
