@@ -11,7 +11,7 @@ $(function() {
       };
   
       // Send the POST request.
-      $.ajax("/api/tacos", {
+      $.ajax("/api/user", {
         type: "POST",
         data: newUser
       }).then(
