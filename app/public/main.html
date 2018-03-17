@@ -1,0 +1,181 @@
+<html>
+
+<head>
+    <title>Place searches</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./assets/css/style_main.css">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-findcond navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                <a class="navbar-brand" href="#">BarkPark</a>
+                <form class="navbar-form navbar-right search-form" role="search">
+                    <input type="text" id="pac-input" class="controls form-control" placeholder="Search" />
+                </form>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbar">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-bell-o"></i>Home<span class="caret"></span></a>
+                        <!-- <ul class="dropdown-menu" role="menu">
+                            <li><a href="#"><i class="fa fa-fw fa-tag"></i> <span class="badge">Music</span> sayfası <span class="badge">Video</span> sayfasında etiketlendi</a></li>
+                            <li><a href="#"><i class="fa fa-fw fa-thumbs-o-up"></i> <span class="badge">Music</span> sayfasında iletiniz beğenildi</a></li>
+                            <li><a href="#"><i class="fa fa-fw fa-thumbs-o-up"></i> <span class="badge">Video</span> sayfasında iletiniz beğenildi</a></li>
+                            <li><a href="#"><i class="fa fa-fw fa-thumbs-o-up"></i> <span class="badge">Game</span> sayfasında iletiniz beğenildi</a></li>
+                        </ul> -->
+                    </li>
+                    <li class="active"><a href="#">Profile <span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" id="addClass" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Message<span class="badge">1</span> </a>
+                        <!-- <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Geri bildirim</a></li>
+                            <li><a href="#">Yardım</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Ayarlar</a></li>
+                            <li><a href="#exit">Çıkış yap</a></li>
+                        </ul> -->
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <div id="map"></div>
+
+    <aside id="sidebar_secondary" class="tabbed_sidebar ng-scope chat_sidebar">
+
+        <div class="popup-head">
+            <div class="popup-head-left pull-left">
+            </div>
+            <div class="popup-head-right pull-right">
+                <button class="chat-header-button" type="button"><i class="glyphicon glyphicon-facetime-video"></i></button>
+                <button class="chat-header-button" type="button"><i class="glyphicon glyphicon-earphone"></i></button>
+                <div class="btn-group gurdeepoushan">
+                    <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
+                                                   <i class="glyphicon glyphicon-paperclip"></i> </button>
+                    <ul role="menu" class="dropdown-menu pull-right">
+                        <li><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Gallery</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Photo</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Video</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Audio</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Location</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Contact</a></li>
+                    </ul>
+                </div>
+
+                <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-remove"></i></button>
+            </div>
+        </div>
+
+        <div id="chat" class="chat_box_wrapper chat_box_small chat_box_active" style="opacity: 1; display: block; transform: translateX(0px);">
+            <div class="chat_box touchscroll chat_box_colors_a">
+                <div class="chat_message_wrapper">
+                    <div class="chat_user_avatar">
+
+                    </div>
+                    <ul class="chat_message">
+                        <li>
+                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eum? </p>
+                        </li>
+                        <li>
+                            <p> Lorem ipsum dolor sit amet.<span class="chat_message_time">13:38</span> </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="chat_message_wrapper chat_message_right">
+                    <div class="chat_user_avatar">
+
+                    </div>
+                    <ul class="chat_message">
+                        <li>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem delectus distinctio dolor earum est hic id impedit ipsum minima mollitia natus nulla perspiciatis quae quasi, quis recusandae, saepe, sunt totam.
+                                <span class="chat_message_time">13:34</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="chat_message_wrapper">
+                    <div class="chat_user_avatar">
+
+
+                        </a>
+                    </div>
+                    <ul class="chat_message">
+                        <li>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ea mollitia pariatur porro quae sed sequi sint tenetur ut veritatis.https://www.facebook.com/iamgurdeeposahan
+                                <span class="chat_message_time">23 Jun 1:10am</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="chat_message_wrapper chat_message_right">
+                    <div class="chat_user_avatar">
+
+
+                    </div>
+                    <ul class="chat_message">
+                        <li>
+                            <p> Lorem ipsum dolor sit amet, consectetur. </p>
+                        </li>
+                        <li>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                <span class="chat_message_time">Friday 13:34</span>
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="chat_submit_box">
+            <div class="uk-input-group">
+                <div class="gurdeep-chat-box">
+                    <span style="vertical-align: sub;" class="uk-input-group-addon">
+                    <a href="#"><i class="fa fa-smile-o"></i></a>
+                    </span>
+                    <input type="text" placeholder="Type a message" id="submit_message" name="submit_message" class="md-input">
+                    <span style="vertical-align: sub;" class="uk-input-group-addon">
+                    <a href="#"><i class="fa fa-camera"></i></a>
+                    </span>
+                </div>
+
+                <span class="uk-input-group-addon">
+                <a href="#"><i class="glyphicon glyphicon-send"></i></a>
+                </span>
+            </div>
+        </div>
+
+        </div>
+
+
+
+
+
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6NlS01JXVsAkq6HYU0u0ltTwa3wGCQZw&libraries=places&callback=initMap" async defer></script>
+        <script src="./assets/js/map.js"></script>
+</body>
+
+</html>``
