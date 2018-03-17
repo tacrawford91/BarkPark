@@ -5,6 +5,10 @@ var myMarker = [];
 
 
 var newMarker2 = [];
+var lat = [];
+var long = [];
+var parkName = [];
+var address = [];
 
 function initMap() {
     var chicago = {
@@ -12,7 +16,7 @@ function initMap() {
         lng: -87.6298
     };
     var icon = {
-        url: "./assets/image/dog.png",
+        url: "/dog.png",
         labelOrigin: new google.maps.Point(9, -8),
         scaledSize: new google.maps.Size(20, 20),
         origin: new google.maps.Point(0, 0), // origin
@@ -87,11 +91,18 @@ function callback(results, status) {
             results[i].number = i;
             createMarker(results[i]);
         }
-        console.log(myMarker[0])
+        // $.ajax({
+        // console.log(myMarker)
+        $.post("/api/park", { "address": address }, function(data) {
+                console.log("nice")
+            })
+            // })
     }
 }
 
 function createMarker(place) {
+    console.log(place)
+    var placeLoc = place.geometry.location;
     var icon = {
         url: "./dog.png",
         labelOrigin: new google.maps.Point(9, -8),
@@ -99,7 +110,7 @@ function createMarker(place) {
         origin: new google.maps.Point(0, 0), // origin
         anchor: new google.maps.Point(11, 40)
     }
-    var placeLoc = place.geometry.location;
+
     var marker = new google.maps.Marker({
         map: map,
         position: placeLoc,
@@ -107,15 +118,21 @@ function createMarker(place) {
             color: "red",
             text: place.number.toString()
         },
-        icon: icon
+        icon: icon,
     });
     myMarker.push(marker);
-
+    lat.push(marker.position.lat())
+    long.push(marker.position.lng())
+    parkName.push(place.name)
+    address.push(place.vicinity)
     google.maps.event.addListener(marker, 'click', function() {
 
         infowindow.setContent(place.name);
         infowindow.open(map, this);
     });
+
+
+
 }
 
 function removeMarkers() {
@@ -138,6 +155,8 @@ function removeMarker2() {
     }
 }
 
+
+
 $("#addClass").click(function() {
     $('#sidebar_secondary').addClass('popup-box-on');
 });
@@ -145,5 +164,3 @@ $("#addClass").click(function() {
 $("#removeClass").click(function() {
     $('#sidebar_secondary').removeClass('popup-box-on');
 });
-
-$(".chat_sidebar").draggable()
