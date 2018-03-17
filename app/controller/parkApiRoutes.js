@@ -4,6 +4,8 @@ var router = express.Router();
 // Requiring models
 var db = require("../models");
 
+//socket io
+var io = require('socket.io')(http);
 
 //Get single park
 router.get("/park/:id", (req,res)=> {
