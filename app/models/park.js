@@ -4,7 +4,8 @@ module.exports = function(sequelize, DataTypes) {
     var Park = sequelize.define("Park", {
       park_name: DataTypes.STRING,
       address_lat: DataTypes.STRING,
-      address_long: DataTypes.STRING
+      address_long: DataTypes.STRING,
+      dog_number: DataTypes.INTEGER
     });
     return Park;
   };
