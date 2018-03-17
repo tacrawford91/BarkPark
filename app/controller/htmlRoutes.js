@@ -6,4 +6,20 @@ var db = require("../models");
 
 module.exports = function(app) {
     
-}
+router.get("/", (req,res) => {
+
+    //send landing page
+    res.render("index",)
+})
+
+//sign up form
+
+
+//map page
+
+//profile page
+
+//park page
+
+
+};
