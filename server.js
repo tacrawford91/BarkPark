@@ -36,12 +36,22 @@ app.use("/api", parkApiRoutes);
 app.use("/api", userApiRoutes);
 
 
-
-
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
 db.sequelize.sync().then(function() {
-    app.listen(PORT, function() {
+    const io = require('socket.io').listen( app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
-    });
+    }));
+
+    io.on('connection', function (socket) {
+      console.log("Socket connected on port " + PORT);
+      
+      io.emit("test1", {test: "can you see this?"})
+
+      socket.on("addedForm", function(data){
+      io.sockets.emit("grabData", {please: "work"});
+      })
+  });
+
+  
 });
