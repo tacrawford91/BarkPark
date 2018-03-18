@@ -4,18 +4,23 @@ var router = express.Router();
 // Requiring models
 var db = require("../models");
 
-
+var path = require("path");
     
 router.get("/", (req,res) => {
-
+    console.log(req.app.io);
     //send landing page
-    res.send("main")
-})
+    res.sendFile(path.join(__dirname, "../views/login.html"));
+});
+
+
+router.get("/main", (req,res) => {
+    //send landing page
+    res.sendFile(path.join(__dirname, "../views/main.html"));
+});
 
 //sign up form
 router.get("/newDog", (req,res) => {
-    console.log("I heareareasr you")
-    res.render("form.html");
+    res.sendFile(path.join(__dirname, "../views/form.html"));
 })
 
 

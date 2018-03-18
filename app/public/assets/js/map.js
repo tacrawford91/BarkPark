@@ -16,6 +16,13 @@ function initMap() {
         lng: -87.6298
     };
 
+//     var icon = {
+//         url: "../image/dog.png",
+//         labelOrigin: new google.maps.Point(9, -8),
+//         scaledSize: new google.maps.Size(20, 20),
+//         origin: new google.maps.Point(0, 0), // origin
+//     }
+
     map = new google.maps.Map(document.getElementById('map'), {
         center: chicago,
         zoom: 11
