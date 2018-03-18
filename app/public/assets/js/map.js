@@ -15,43 +15,72 @@ function initMap() {
         lat: 41.8781,
         lng: -87.6298
     };
-
-//     var icon = {
-//         url: "../image/dog.png",
-//         labelOrigin: new google.maps.Point(9, -8),
-//         scaledSize: new google.maps.Size(20, 20),
-//         origin: new google.maps.Point(0, 0), // origin
-//     }
-
     map = new google.maps.Map(document.getElementById('map'), {
         center: chicago,
         zoom: 11
     });
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+            map.setCenter(pos)
+            var locationMarker = new google.maps.Marker({
+                map: map
+            })
+            locationMarker.setPosition(pos)
+            var infowindow = new google.maps.InfoWindow();
+            google.maps.event.addListener(locationMarker, 'click', function() {
+                infowindow.setContent();
+                infowindow.open(map, locationMarker);
+            });
+        })
+
+    }
+
+
 
     createMarker(addMarker)
-        // placeMarker(location);
-        // for (var i = 0; i < location.length; i++) {
-
-    // }
 }
 
 function createMarker(callback) {
     $.get("/api/parkall").then(function(data) {
         callback(data)
-        console.log(data)
+
     })
 }
 
 function addMarker(data) {
+    var icon = {
+        url: "assets/image/dog.png",
+        labelOrigin: new google.maps.Point(9, -8),
+        scaledSize: new google.maps.Size(20, 20),
+        origin: new google.maps.Point(0, 0),
+        id: 1 // origin
+    }
     for (var i = 0; i < data.length; i++) {
+        // var icon = {
+        //     url: "../dog.png",
+        //     labelOrigin: new google.maps.Point(9, -8),
+        //     scaledSize: new google.maps.Size(20, 20),
+        //     origin: new google.maps.Point(0, 0), // origin
+        // }
         var location = {
             lat: Number(data[i].address_lat),
             lng: Number(data[i].address_long)
         };
         var cnt = new google.maps.LatLng(location);
         var marker = new google.maps.Marker({
-            map: map
+            map: map,
+            label: {
+                color: "red",
+                text: data[i].dog_number.toString()
+            },
+            icon: icon
+
         })
+        marker.set("id", 1);
         marker.setPosition(cnt);
         myMarker.push(marker);
         var infowindow = new google.maps.InfoWindow();
@@ -61,7 +90,21 @@ function addMarker(data) {
             return function() {
                 infowindow.setContent(data[i].park_name);
                 infowindow.open(map, marker);
-                $(this).click(i)
+                $.get("/api/parkall", function(data) {
+                    $(".modal-body").empty();
+                    data.forEach(element => {
+
+                        var p = $(`<p id="${element["id"]}">`)
+                        p.append(element["id"] + ". " + element['park_name'])
+
+                        $(".modal-body").append(p)
+                    });
+                    $('#myModal').modal('show');
+
+                    // $(".modal-body").append()
+                })
+
+
             }
         })(marker, i));
     }
@@ -78,7 +121,12 @@ function addMarker(data) {
 //     map: map
 // });
 
-
+// var icon = {
+//     url: "../image/dog.png",
+//     labelOrigin: new google.maps.Point(9, -8),
+//     scaledSize: new google.maps.Size(20, 20),
+//     origin: new google.maps.Point(0, 0), // origin
+// }
 
 // function initMap() {
 
@@ -87,12 +135,7 @@ function addMarker(data) {
 //         lat: 41.8781,
 //         lng: -87.6298
 //     };
-//     var icon = {
-//         url: "dog.png",
-//         labelOrigin: new google.maps.Point(9, -8),
-//         scaledSize: new google.maps.Size(20, 20),
-//         origin: new google.maps.Point(0, 0), // origin
-//     }
+
 //     map = new google.maps.Map(document.getElementById('map'), {
 //         center: chicago,
 //         zoom: 11
@@ -217,3 +260,12 @@ $("#removeClass").click(function() {
     $('#sidebar_secondary').removeClass('popup-box-on');
 });
 $(".chat_sidebar").draggable()
+$(document).data("target", "#myModal")
+$("map").data("toggle", "modal")
+
+`
+
+`
+// $(document).on("click", "map", function() {
+
+// })
