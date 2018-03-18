@@ -6,8 +6,6 @@ var bcrypt = require("bcrypt-nodejs");
 
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("User", {
-      user_name: DataTypes.STRING,
-      password: DataTypes.STRING,
       // The email cannot be null
       email: {
         type: DataTypes.STRING,
@@ -23,7 +21,14 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       },
       dog_name: DataTypes.STRING,
+      picture: DataTypes.STRING,
     });
+  
+    // Will add a parkId attribute to User to hold the primary key value for Park
+  User.associate = function(models) {
+    User.belongsTo(models.Park);
+  };
+
   // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
   User.prototype.validPassword = function (password) {
     return bcrypt.compareSync(password, this.password);
