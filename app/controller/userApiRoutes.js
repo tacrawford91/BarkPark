@@ -4,8 +4,6 @@ var router = express.Router();
 // Requiring models
 var db = require("../models");
 
-
-
 //Get single user
 router.get("/user/:id", (req, res) => {
     db.User.findOne({ where: { id: req.params.id } }).then((data) => {
@@ -26,11 +24,12 @@ router.post("/user", (req, res) => {
     console.log("hello t & L")
     db.User.create(req.body).then((dbPost) => {
         res.json(dbPost);
-    });
+    })
 });
 
 // Update user
 router.put("/user/:id", (req,res)=> {
+    // var io = req.io;
     var updatedUser = {
         user_name: req.body.user_name,
         password: req.body.password,
@@ -43,10 +42,11 @@ router.put("/user/:id", (req,res)=> {
     }
     db.User.update(updatedUser, {where: {id: req.params.id}}).then( (data) => {
         console.log(data);
+        req.app.io.emit('test1', {test:"please work"});
         res.json(data)
+
     });
 });
-
 
 //Delete user
 router.delete("/user/:id", (req,res)=> {
