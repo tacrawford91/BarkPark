@@ -1,6 +1,7 @@
 var map;
 var infowindow;
 var myMarker = [];
+var socket = io.connect("http://localhost:3000");
 // var newMarker2 = [];
 // var lat = [];
 // var long = [];
@@ -125,6 +126,40 @@ function addMarker(data) {
                     });
                     $('#myModal').modal('show');
                 })
+                $("#submitData").on("click", function(event) {
+                    event.preventDefault();
+                    var dogCountUpdate = {
+                        parkID: data[i].id,
+                        dog_count: Number($("#dogNumber").val().trim())
+                    };
+                    console.log(dogCountUpdate)
+                    $.ajax({
+                        url: `/api/park/newDog/${dogCountUpdate.parkID}`,
+                        method: "PUT",
+                        data: dogCountUpdate
+                    }).then((data) => {
+                        console.log(`updated park id${dogCountUpdate.parkID} with ${dogCountUpdate.dog_count}`);
+                        socket.emit("dogCountUpdate", { dogCountUpdate });
+
+                    })
+                    socket.on("dogCountUpdate", function(data) {
+                        console.log(data.data.dogCountUpdate.parkID);
+                        $.ajax({
+                            url: `/api/park/${data.data.dogCountUpdate.parkID}`,
+                            method: "GET"
+                        }).then((data) => {
+                            var newLabel = {
+                                color: "red",
+                                text: data.dog_count.toString()
+                            }
+                            console.log(data.dog_count);
+                            marker.setLabel(newLabel);
+
+                        })
+                    })
+
+
+                });
             }
         })(marker, i));
         google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
@@ -297,6 +332,11 @@ $(document).on("click", "#checkin", function() {
     $("#checkinModal").modal("show")
 
 })
+
+
+
+//Magic Below 
+
 
 // $("#submit").click(function() {
 
