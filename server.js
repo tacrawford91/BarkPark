@@ -48,8 +48,9 @@ db.sequelize.sync().then(function() {
       
       io.emit("test1", {test: "can you see this?"})
 
-      socket.on("addedForm", function(data){
-      io.sockets.emit("grabData", {please: "work"});
+      socket.on("dogCountUpdate", function(data){
+      io.sockets.emit("dogCountUpdate", {data});
+      console.log(data);
       })
   });
 

@@ -1,14 +1,6 @@
 
   var socket = io.connect("http://localhost:3000");
 
-  socket.on("test1", function(data){
-      console.log(data);
-  })
-
-  socket.on("grabData", function(data){
-    console.log(data);
-})
-
 $(".create-form").on("submit", function(event) {
   event.preventDefault();
 
@@ -31,6 +23,41 @@ $(".create-form").on("submit", function(event) {
     }
   )
 });
+
+
+//check in button goes here
+$(".parkCheckIn").on("click", function(event){
+  event.preventDefault();
+      var dogCountUpdate = {
+                      parkID: Number($(".parkID").val()),
+                      dog_count: Number($(".numDogs").val())
+                    };
+
+      $.ajax({
+        url:`/api/park/newDog/${dogCountUpdate.parkID}`,
+        method: "PUT",
+        data: dogCountUpdate
+    }).then( (data) => {
+      console.log(`updated park id${dogCountUpdate.parkID} with ${dogCountUpdate.dog_count}`);
+      socket.emit("dogCountUpdate", {dogCountUpdate});
+
+    })
+
+});
+
+//Magic Below 
+socket.on("dogCountUpdate", function(data){
+  console.log(data.data.dogCountUpdate.parkID);
+    $.ajax({
+      url:`/api/park/${data.data.dogCountUpdate.parkID}`,
+      method: "GET"
+  }).then( (data) => {
+    console.log(data);
+  //update marker on screen
+  })
+})
+
+
 
 
 

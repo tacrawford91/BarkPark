@@ -42,6 +42,17 @@ router.put("/park/:id", (req,res)=> {
     });
 });
 
+// Update dog population 
+router.put("/park/newDog/:id", (req,res)=> {
+    var dogCountUpdate = {
+        dog_count: req.body.dog_count,
+    }
+    db.Park.update(dogCountUpdate, {where: {id: req.params.id}}).then( (data) => {
+        console.log(data);
+        res.json(data)
+    });
+});
+
 
 //Delete park
 router.delete("/park/:id", (req,res)=> {
