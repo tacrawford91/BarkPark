@@ -13,6 +13,7 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 
@@ -96,14 +97,16 @@
                     <h4 class="modal-title secondModalTitle">Modal Header</h4>
                 </div>
                 <div class="modal-body secondModalBody">
+                    The number of dogs in this park<input type="text" id="dogNumber"><br>
                     <form id="checkinForm" action="" method="">
+
                         <!-- <input type="checkbox" name="vehicle" value="Bike">Bike<br>
                         <input type="checkbox" name="vehicle" value="Car" checked>house<br>
                         <input id="submit" type="button" value="Submit"> -->
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <p class="text-center"><button type="button" id="submitData" class="btn btn-default" data-dismiss="modal">Submit</button></p>
                 </div>
             </div>
 
