@@ -167,3 +167,10 @@
 	"address_long": "-87.676690",
 	"dog_number": 0
 }
+
+{
+	"park_name": "Lake Shore Pakr",
+	"address_lat": "41.897243",
+	"address_long": "-87.619131",
+	"dog_number": 0
+}
