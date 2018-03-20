@@ -1,12 +1,12 @@
 var map;
 var infowindow;
 var myMarker = [];
-var newMarker2 = [];
-var lat = [];
-var long = [];
-var parkName = [];
-var address = [];
-var mylat;
+// var newMarker2 = [];
+// var lat = [];
+// var long = [];
+// var parkName = [];
+// var address = [];
+// var mylat;
 
 
 
@@ -27,21 +27,32 @@ function initMap() {
             };
             map.setCenter(pos)
             var locationMarker = new google.maps.Marker({
-                map: map
+                map: map,
+                label: "You are here"
+
             })
             locationMarker.setPosition(pos)
             var infowindow = new google.maps.InfoWindow();
             google.maps.event.addListener(locationMarker, 'click', function() {
-                infowindow.setContent();
+                infowindow.setContent("Your Location");
                 infowindow.open(map, locationMarker);
             });
-        })
-
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
     }
-
-
-
     createMarker(addMarker)
+}
+
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+    infoWindow.setPosition(pos);
+    infoWindow.setContent(browserHasGeolocation ?
+        'Error: The Geolocation service failed.' :
+        'Error: Your browser doesn\'t support geolocation.');
+    infoWindow.open(map);
 }
 
 function createMarker(callback) {
@@ -60,12 +71,6 @@ function addMarker(data) {
         id: 1 // origin
     }
     for (var i = 0; i < data.length; i++) {
-        // var icon = {
-        //     url: "../dog.png",
-        //     labelOrigin: new google.maps.Point(9, -8),
-        //     scaledSize: new google.maps.Size(20, 20),
-        //     origin: new google.maps.Point(0, 0), // origin
-        // }
         var location = {
             lat: Number(data[i].address_lat),
             lng: Number(data[i].address_long)
@@ -75,7 +80,7 @@ function addMarker(data) {
             map: map,
             label: {
                 color: "red",
-                text: data[i].dog_number.toString()
+                text: data[i].dog_count.toString()
             },
             icon: icon
 
@@ -85,31 +90,55 @@ function addMarker(data) {
         myMarker.push(marker);
         var infowindow = new google.maps.InfoWindow();
         // console.log(data[i].park_name)
-
+        var searchBox = new google.maps.places.SearchBox(document.getElementById('pac-input'));
+        google.maps.event.addListener(searchBox, "places_changed", function() {
+            // removeMarkers()
+            var marker2 = new google.maps.Marker({
+                map: map,
+                icon: icon
+            });
+            var places = searchBox.getPlaces()
+            var bounds = new google.maps.LatLngBounds();
+            bounds.extend(places[0].geometry.location);
+            marker2.setPosition(places[0].geometry.location);
+            google.maps.event.addListener(marker2, 'click', function() {
+                infowindow.setContent(places[0].name);
+                infowindow.open(map, this);
+            });
+            map.fitBounds(bounds);
+            map.setZoom(10)
+        })
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-                infowindow.setContent(data[i].park_name);
-                infowindow.open(map, marker);
-                $.get("/api/parkall", function(data) {
-                    $(".modal-body").empty();
-                    data.forEach(element => {
+                // $.post("/api/park"+data[i].id,{},function(res){
+
+                // })
+                $.get("/api/parkall", function(result) {
+                    $(".firstModalBody").empty();
+                    $(".firstModalTitle").text(data[i].park_name)
+                    result.forEach(element => {
 
                         var p = $(`<p id="${element["id"]}">`)
                         p.append(element["id"] + ". " + element['park_name'])
 
-                        $(".modal-body").append(p)
+                        $(".firstModalBody").append(p)
                     });
                     $('#myModal').modal('show');
-
-                    // $(".modal-body").append()
                 })
-
-
+            }
+        })(marker, i));
+        google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
+            return function() {
+                infowindow.setContent(data[i].park_name);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+        google.maps.event.addListener(marker, 'mouseout', (function(marker, i) {
+            return function() {
+                infowindow.close()
             }
         })(marker, i));
     }
-
-
 }
 
 
@@ -152,7 +181,7 @@ function addMarker(data) {
 //             }
 //         }
 //     })
-//     var searchBox = new google.maps.places.SearchBox(document.getElementById('pac-input'));
+// var searchBox = new google.maps.places.SearchBox(document.getElementById('pac-input'));
 //     google.maps.event.addListener(searchBox, "places_changed", function() {
 //         removeMarkers()
 //         var marker2 = new google.maps.Marker({
@@ -260,12 +289,15 @@ $("#removeClass").click(function() {
     $('#sidebar_secondary').removeClass('popup-box-on');
 });
 $(".chat_sidebar").draggable()
-$(document).data("target", "#myModal")
-$("map").data("toggle", "modal")
 
-`
+$(document).on("click", "#checkin", function() {
+    $("#checkinForm").empty()
+    var input = $(`<input type="checkbox" name="list" value="house">house<br>`)
+    $("#checkinForm").append(input)
+    $("#checkinModal").modal("show")
 
-`
-// $(document).on("click", "map", function() {
+})
+
+// $("#submit").click(function() {
 
 // })
