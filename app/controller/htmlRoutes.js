@@ -5,21 +5,21 @@ var router = express.Router();
 var db = require("../models");
 
 var path = require("path");
-    
-router.get("/", (req,res) => {
+
+router.get("/", (req, res) => {
     console.log(req.app.io);
     //send landing page
     res.sendFile(path.join(__dirname, "../views/login.html"));
 });
 
 
-router.get("/main", (req,res) => {
+router.get("/main", (req, res) => {
     //send landing page
     res.sendFile(path.join(__dirname, "../views/main.html"));
 });
 
 //sign up form
-router.get("/newDog", (req,res) => {
+router.get("/newDog", (req, res) => {
     res.sendFile(path.join(__dirname, "../views/form.html"));
 })
 
