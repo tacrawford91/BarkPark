@@ -1,6 +1,6 @@
-INSERT INTO Users (user_name, password, email, dog_name, dog_location) VALUES ("userA", "passwordA", "emailA@email.com", "Fluffy");
-INSERT INTO Users (user_name, password, email, dog_name, dog_location) VALUES ("userB", "passwordB", "emailB@email.com", "Spike");
-INSERT INTO Users (user_name, password, email, dog_name, dog_location) VALUES ("userC", "passwordC", "emailC@email.com", "Fido");
+INSERT INTO Users (email, password, dog_name, currentParkID) VALUES ("emailA@email.com", "passwordA", "Fluffy");
+INSERT INTO Users (email, password, dog_name, currentParkID) VALUES ("emailA@email.com", "passwordB", "Spike");
+INSERT INTO Users (email, password, dog_name, currentParkID) VALUES ("emailA@email.com", "passwordC", "Fido");
 
 INSERT INTO Parks (park_name, address_lat, address_long) VALUES ("Wiggly Field", 41.930533, -87.653434);
 INSERT INTO Parks (park_name, address_lat, address_long) VALUES ("Belmont Dog Beach", 41.945151, -87.640307);
