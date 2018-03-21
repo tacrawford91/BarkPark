@@ -1,47 +1,40 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <title>Place searches</title>
-    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <!-- <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>HTML Template</title>
+
     <!-- Google font -->
 
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!-- Bootstrap -->
 
     <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+
+    <!-- Owl Carousel -->
     <link type="text/css" rel="stylesheet" href="assets/css/owl.carousel.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/owl.theme.default.css" />
+
     <!-- Magnific Popup -->
     <link type="text/css" rel="stylesheet" href="assets/css/magnific-popup.css" />
+
     <!-- Font Awesome Icon -->
 
-    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/newstyle.css">
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-
-
-
-
-
-
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -52,78 +45,77 @@
 </head>
 
 <body>
-
     <!-- Header -->
     <header id="home">
-        <div class="container">
-            <div class="bg-img" style="background-image: url('/assets/image/barkPark1.jpg');">
-                <!-- <div class="overlay"></div> -->
-            </div>
-            <!-- /Background Image -->
+        <!-- Background Image -->
+        <div class="bg-img" style="background-image: url('assets/image/barkPark1.jpg');">
+            <div class="overlay"></div>
+        </div>
+        <!-- /Background Image -->
 
-            <!-- Nav -->
-            <nav id="nav" class="navbar nav-transparent">
-                <div class="container">
+        <!-- Nav -->
+        <nav id="nav" class="navbar nav-transparent">
+            <div class="container">
 
-                    <div class="navbar-header">
-                        <!-- Logo -->
-                        <div class="navbar-brand">
-                            <a href="#">
-                                <br>
-                                <p style="color:#f14444;">BarkPark</p>
-                            </a>
+                <div class="navbar-header">
+                    <!-- Logo -->
+                    <div class="navbar-brand">
+                        <a href="index.html">
+                            <br>
+                            <p style="color:#f14444;">BarkPark</p>
+                        </a>
 
-
-                        </div>
-                        <!-- /Logo -->
-
-                        <!-- Collapse nav button -->
-                        <div class="nav-collapse">
-                            <span></span>
-                        </div>
-                        <!-- /Collapse nav button -->
-                    </div>
-
-                    <!--  Main navigation  -->
-                    <ul class="main-nav nav navbar-nav navbar-right">
-                        <li style="color:#f14444;"><a href="#home"><i class="fa fa-fw fa-bell-o"></i>Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#profile">Profile</a></li>
-                        <li><a href="#parkMap">Park Map</a></li>
-                        <li><a href="#team">Team</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li><a id="addClass" href="#">Message<span style="background:gold"class="badge">1</span></a></li>
-                        <li><a href="#">Sign In</a></li>
-                    </ul>
-                    <!-- /Main navigation -->
-
-                </div>
-            </nav>
-            <!-- /Nav -->
-
-            <!-- home wrapper -->
-            <div class="home-wrapper">
-                <div class="container">
-                    <div class="row">
-
-                        <!-- home content -->
-                        <div class="col-md-10 col-md-offset-1">
-                            <div class="home-content">
-                                <h1 class="white-text">404 Error</h1>
-                                <p class="white-text">Your computer will restart in 10 seconds
-                                </p>
-                                <button class="white-btn">Yes </button>
-                                <button class="main-btn">No</button>
-                            </div>
-                        </div>
-                        <!-- /home content -->
 
                     </div>
+                    <!-- /Logo -->
+
+                    <!-- Collapse nav button -->
+                    <div class="nav-collapse">
+                        <span></span>
+                    </div>
+                    <!-- /Collapse nav button -->
                 </div>
-                <!-- /home wrapper -->
+
+                <!--  Main navigation  -->
+                <ul class="main-nav nav navbar-nav navbar-right">
+                    <li style="color:#f14444;"><a href="#home"><i class="fa fa-fw fa-bell-o"></i>Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#profile">Profile</a></li>
+                    <li><a href="#parkMap">Park Map</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a id="addClass" href="#">Message<span style="background:gold"class="badge">1</span></a></li>
+                    <li><a href="#login">Sign In</a></li>
+                </ul>
+                <!-- /Main navigation -->
+
             </div>
+        </nav>
+        <!-- /Nav -->
+
+        <!-- home wrapper -->
+        <div class="home-wrapper">
+            <div class="container">
+                <div class="row">
+
+                    <!-- home content -->
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="home-content">
+                            <!-- <h1 class="white-text">We Are Creative Agency</h1>
+                            <p class="white-text">Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere.
+                            </p> -->
+                            <!-- <button class="white-btn"></button>
+                            <button class="main-btn"></button> -->
+                        </div>
+                    </div>
+                    <!-- /home content -->
+
+                </div>
+            </div>
+        </div>
+        <!-- /home wrapper -->
+
     </header>
-
     <!-- /Header -->
     <div id="mymodal">
         <div id="myModal" class="modal fade" role="dialog">
@@ -147,7 +139,6 @@
         </div>
 
     </div>
-
     <!-- Modal -->
     <div id="checkinModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -163,8 +154,8 @@
                     <form id="checkinForm" action="" method="">
 
                         <!-- <input type="checkbox" name="vehicle" value="Bike">Bike<br>
-                            <input type="checkbox" name="vehicle" value="Car" checked>house<br>
-                            <input id="submit" type="button" value="Submit"> -->
+                                            <input type="checkbox" name="vehicle" value="Car" checked>house<br>
+                                            <input id="submit" type="button" value="Submit"> -->
                     </form>
                 </div>
                 <div class="secondFooter modal-footer">
@@ -173,7 +164,6 @@
 
         </div>
     </div>
-
     <!-- chat box -->
     <aside id="sidebar_secondary" class="tabbed_sidebar ng-scope chat_sidebar">
 
@@ -302,7 +292,7 @@
                 <div class="col-md-4">
                     <div class="about">
                         <i class="fa fa-cogs"></i>
-                        <p>Something</p>
+
                     </div>
                 </div>
                 <!-- /about -->
@@ -311,7 +301,7 @@
                 <div class="col-md-4">
                     <div class="about">
                         <i class="fa fa-magic"></i>
-                        <p>Something</p>
+
                     </div>
                 </div>
                 <!-- /about -->
@@ -320,7 +310,7 @@
                 <div class="col-md-4">
                     <div class="about">
                         <i class="fa fa-mobile"></i>
-                        <p>Something</p>
+
                     </div>
                 </div>
                 <!-- /about -->
@@ -353,8 +343,63 @@
         <!-- /Container -->
     </div>
     <!-- /Service -->
+    <div id="login" class="section md-padding">
 
+        <!-- Container -->
+        <div class="container">
 
+            <!-- Row -->
+            <!-- <div class="row"> -->
+            <div class="row text-center" id="heading">
+                <!-- Section header -->
+                <div class="section-header text-center">
+                    <h2 class="title">Log In</h2>
+                </div>
+                <!-- Login -->
+                <div class="col-md-6 col-md-offset-3 wow animated zoomInDown" id="heading-text">
+                    <div class="myform">
+                        <form class="form">
+                            <input type="text" placeholder="Username"><br>
+                            <input type="password" placeholder="Password"><br>
+                            <br>
+                            <button type="submit" class="btn btn-default login-button">Login</button>
+
+                            <hr>
+                            <p class="message signIn">Not registered? <a href="#">Create an account</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- row -->
+
+            <!-- container -->
+            </section>
+            <!-- Login-->
+
+            <!-- /Section header -->
+        </div>
+        <!-- /Row -->
+    </div>
+    <!-- Service -->
+    <div id="signup" class="section md-padding">
+
+        <!-- Container -->
+        <div class="container">
+
+            <!-- Row -->
+            <div class="row">
+
+                <!-- Section header -->
+                <div class="section-header text-center">
+                    <h2 class="title">Sign Up</h2>
+                </div>
+                <!-- /Section header -->
+            </div>
+            <!-- /Row -->
+        </div>
+        <!-- /Container -->
+    </div>
+    <!-- /Service -->
 
     <!-- Service -->
     <div id="parkMap" class="section md-padding">
@@ -412,7 +457,7 @@
                 <!-- /Section header -->
 
                 <!-- team -->
-                <div class="col-sm-12">
+                <div class=col-sm-12>
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="team">
@@ -472,10 +517,8 @@
                         </div>
                         <!-- /team -->
                     </div>
-
-
-                    <!-- team -->
                     <div class="row">
+                        <!-- team -->
                         <div class="col-sm-2"></div>
                         <div class="col-sm-4">
                             <div class="team">
@@ -518,6 +561,7 @@
                     </div>
                 </div>
             </div>
+            <div class="col-sm-1"></div>
             <!-- /Row -->
 
         </div>
@@ -547,7 +591,7 @@
                     <div class="contact">
                         <i class="fa fa-phone"></i>
                         <h3>Phone</h3>
-                        <p>111-111-1111</p>
+                        <p>512-421-3940</p>
                     </div>
                 </div>
                 <!-- /contact -->
@@ -656,18 +700,17 @@
     <!-- /Preloader -->
 
     <!-- jQuery Plugins -->
-
-    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6NlS01JXVsAkq6HYU0u0ltTwa3wGCQZw&libraries=places&callback=initMap" async defer></script>
-    <script src="assets/js/map.js"></script> -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6NlS01JXVsAkq6HYU0u0ltTwa3wGCQZw&libraries=places&callback=initMap" async defer></script>
-    <script src="assets/js/map.js"></script>
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.magnific-popup.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6NlS01JXVsAkq6HYU0u0ltTwa3wGCQZw&libraries=places&callback=initMap" async defer></script>
+    <script src="assets/js/map.js"></script>
 </body>
 
 </html>
