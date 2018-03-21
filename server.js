@@ -24,7 +24,7 @@ app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
 // Static directory
-app.use(express.static("app/public"));
+app.use(express.static("./app/public"));
 
 var htmlRoutes = require("./app/controller/htmlRoutes.js");
 var parkApiRoutes = require("./app/controller/parkApiRoutes.js");
