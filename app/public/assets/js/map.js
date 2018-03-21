@@ -1,15 +1,8 @@
 var map;
 var infowindow;
 var myMarker = [];
+var my
 var socket = io.connect("http://localhost:3000");
-// var newMarker2 = [];
-// var lat = [];
-// var long = [];
-// var parkName = [];
-// var address = [];
-// var mylat;
-
-
 
 function initMap() {
     var chicago = {
@@ -46,7 +39,18 @@ function initMap() {
         handleLocationError(false, infoWindow, map.getCenter());
     }
     createMarker(addMarker)
+
 }
+
+
+// var newMarker2 = [];
+// var lat = [];
+// var long = [];
+// var parkName = [];
+// var address = [];
+// var mylat;
+
+
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.setPosition(pos);
@@ -91,77 +95,84 @@ function addMarker(data) {
         myMarker.push(marker);
         var infowindow = new google.maps.InfoWindow();
         // console.log(data[i].park_name)
-        var searchBox = new google.maps.places.SearchBox(document.getElementById('pac-input'));
-        google.maps.event.addListener(searchBox, "places_changed", function() {
-            // removeMarkers()
-            var marker2 = new google.maps.Marker({
-                map: map,
-                icon: icon
-            });
-            var places = searchBox.getPlaces()
-            var bounds = new google.maps.LatLngBounds();
-            bounds.extend(places[0].geometry.location);
-            marker2.setPosition(places[0].geometry.location);
-            google.maps.event.addListener(marker2, 'click', function() {
-                infowindow.setContent(places[0].name);
-                infowindow.open(map, this);
-            });
-            map.fitBounds(bounds);
-            map.setZoom(10)
-        })
+        // var searchBox = new google.maps.places.SearchBox(document.getElementById('pac-input'));
+        // google.maps.event.addListener(searchBox, "places_changed", function() {
+        //     // removeMarkers()
+        //     var marker2 = new google.maps.Marker({
+        //         map: map,
+        //         icon: icon
+        //     });
+        //     var places = searchBox.getPlaces()
+        //     var bounds = new google.maps.LatLngBounds();
+        //     bounds.extend(places[0].geometry.location);
+        //     marker2.setPosition(places[0].geometry.location);
+        //     google.maps.event.addListener(marker2, 'click', function() {
+        //         infowindow.setContent(places[0].name);
+        //         infowindow.open(map, this);
+        //     });
+        //     map.fitBounds(bounds);
+        //     map.setZoom(10)
+        // })
+
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
                 // $.post("/api/park"+data[i].id,{},function(res){
 
                 // })
+
                 $.get("/api/parkall", function(result) {
-                    $(".firstModalBody").empty();
+                    // $(".firstModalBody").empty();
                     $(".firstModalTitle").text(data[i].park_name)
-                    result.forEach(element => {
+                    $(".secondFooter").empty()
+                    $(".secondFooter").append(`<p class="text-center"><button data-id=${i} type="button" id="submitData" class="btn btn-default" data-dismiss="modal">Submit</button></p>
+                        `)
+                        // result.forEach(element => {
 
-                        var p = $(`<p id="${element["id"]}">`)
-                        p.append(element["id"] + ". " + element['park_name'])
+                    //     var p = $(`<p id="${element["id"]}">`)
+                    //     p.append(element["id"] + ". " + element['park_name'])
 
-                        $(".firstModalBody").append(p)
-                    });
+                    //     $(".firstModalBody").append(p)
+                    // });
                     $('#myModal').modal('show');
                 })
-                $("#submitData").on("click", function(event) {
-                    event.preventDefault();
-                    var dogCountUpdate = {
-                        parkID: data[i].id,
-                        dog_count: Number($("#dogNumber").val().trim())
-                    };
-                    console.log(dogCountUpdate)
-                    $.ajax({
-                        url: `/api/park/newDog/${dogCountUpdate.parkID}`,
-                        method: "PUT",
-                        data: dogCountUpdate
-                    }).then((data) => {
-                        console.log(`updated park id${dogCountUpdate.parkID} with ${dogCountUpdate.dog_count}`);
-                        socket.emit("dogCountUpdate", { dogCountUpdate });
 
+                $("#seeUsers").on("click", function() {
+                    $.get("/api/allusers", function(myData) {
+                        $("#userinfor").empty()
+                        $("#userInfor").text(JSON.stringify(myData[0]) + i)
                     })
-                    socket.on("dogCountUpdate", function(data) {
-                        console.log(data.data.dogCountUpdate.parkID);
-                        $.ajax({
-                            url: `/api/park/${data.data.dogCountUpdate.parkID}`,
-                            method: "GET"
-                        }).then((data) => {
-                            var newLabel = {
-                                color: "red",
-                                text: data.dog_count.toString()
-                            }
-                            console.log(data.dog_count);
-                            marker.setLabel(newLabel);
-
-                        })
-                    })
+                })
 
 
-                });
             }
         })(marker, i));
+
+        $(document).on("click", "#submitData", function() {
+            var newID = $(this).attr("data-id");
+
+            var dogCountUpdate = {
+                parkID: data[newID].id,
+                dog_count: Number($("#dogNumber").val().trim()),
+                marker: newID
+            };
+            console.log(dogCountUpdate)
+
+
+            $.ajax({
+                url: `/api/park/newDog/${dogCountUpdate.parkID}`,
+                method: "PUT",
+                data: dogCountUpdate
+            }).then((data) => {
+                console.log(`updated park id${dogCountUpdate.parkID} with ${dogCountUpdate.dog_count}`);
+                socket.emit("dogCountUpdate", { dogCountUpdate });
+
+            })
+
+
+            // setNumber(marker)
+
+
+        });
         google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
             return function() {
                 infowindow.setContent(data[i].park_name);
@@ -173,10 +184,32 @@ function addMarker(data) {
                 infowindow.close()
             }
         })(marker, i));
+        socket.on("dogCountUpdate", function(data) {
+            console.log(data.data.dogCountUpdate.marker);
+            var mymark = myMarker[data.data.dogCountUpdate.marker]
+                // console.log(mymark)
+            $.ajax({
+                url: `/api/park/${data.data.dogCountUpdate.parkID}`,
+                method: "GET"
+            }).then((data) => {
+                var newLabel = {
+                    color: "red",
+                    text: data.dog_count.toString()
+                }
+
+                // data.marker.setLabel(newLabel)
+                mymark.setLabel(newLabel)
+                    // $("#dogNumber").val("")
+
+
+            })
+        })
     }
 }
 
-
+function setNumber(marker) {
+    marker.setLabel()
+}
 // function placeMarker(location) {
 
 // }

@@ -4,65 +4,127 @@
     <title>Place searches</title>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
+    <!-- <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <!-- Google font -->
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
+
+
+    <!-- Bootstrap -->
+
+    <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css" />
+
+    <link type="text/css" rel="stylesheet" href="assets/css/owl.carousel.css" />
+    <link type="text/css" rel="stylesheet" href="assets/css/owl.theme.default.css" />
+    <!-- Magnific Popup -->
+    <link type="text/css" rel="stylesheet" href="assets/css/magnific-popup.css" />
+    <!-- Font Awesome Icon -->
+
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/style_main.css">
+    <link rel="stylesheet" href="assets/css/newstyle.css">
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
 </head>
 
 <body>
-    <nav class="navbar navbar-findcond navbar-fixed-top">
+
+    <!-- Header -->
+    <header id="home">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                <a class="navbar-brand" href="#">BarkPark</a>
-                <form class="navbar-form navbar-right search-form" role="search">
-                    <input type="text" id="pac-input" class="controls form-control" placeholder="Search" />
-                </form>
+            <div class="bg-img" style="background-image: url('/assets/image/barkPark1.jpg');">
+                <!-- <div class="overlay"></div> -->
             </div>
+            <!-- /Background Image -->
 
-            <div class="collapse navbar-collapse" id="navbar">
+            <!-- Nav -->
+            <nav id="nav" class="navbar nav-transparent">
+                <div class="container">
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-fw fa-bell-o"></i>Home<span class="caret"></span></a>
-                        <!-- <ul class="dropdown-menu" role="menu">
-                            <li><a href="#"><i class="fa fa-fw fa-tag"></i> <span class="badge">Music</span> sayfası <span class="badge">Video</span> sayfasında etiketlendi</a></li>
-                            <li><a href="#"><i class="fa fa-fw fa-thumbs-o-up"></i> <span class="badge">Music</span> sayfasında iletiniz beğenildi</a></li>
-                            <li><a href="#"><i class="fa fa-fw fa-thumbs-o-up"></i> <span class="badge">Video</span> sayfasında iletiniz beğenildi</a></li>
-                            <li><a href="#"><i class="fa fa-fw fa-thumbs-o-up"></i> <span class="badge">Game</span> sayfasında iletiniz beğenildi</a></li>
-                        </ul> -->
-                    </li>
-                    <li class="active"><a href="#">Profile <span class="sr-only">(current)</span></a></li>
-                    <li class="dropdown">
-                        <a href="#" id="addClass" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Message<span class="badge">1</span> </a>
-                        <!-- <ul class="dropdown-menu" role="menu">
-                            <li><a href="#">Geri bildirim</a></li>
-                            <li><a href="#">Yardım</a></li>
-                            <li class="divider"></li>
-                            <li><a href="#">Ayarlar</a></li>
-                            <li><a href="#exit">Çıkış yap</a></li>
-                        </ul> -->
-                    </li>
-                </ul>
+                    <div class="navbar-header">
+                        <!-- Logo -->
+                        <div class="navbar-brand">
+                            <a href="#">
+                                <br>
+                                <p style="color:#f14444;">BarkPark</p>
+                            </a>
 
+
+                        </div>
+                        <!-- /Logo -->
+
+                        <!-- Collapse nav button -->
+                        <div class="nav-collapse">
+                            <span></span>
+                        </div>
+                        <!-- /Collapse nav button -->
+                    </div>
+
+                    <!--  Main navigation  -->
+                    <ul class="main-nav nav navbar-nav navbar-right">
+                        <li style="color:#f14444;"><a href="#home"><i class="fa fa-fw fa-bell-o"></i>Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#profile">Profile</a></li>
+                        <li><a href="#parkMap">Park Map</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a id="addClass" href="#">Message<span style="background:gold"class="badge">1</span></a></li>
+                        <li><a href="#">Sign In</a></li>
+                    </ul>
+                    <!-- /Main navigation -->
+
+                </div>
+            </nav>
+            <!-- /Nav -->
+
+            <!-- home wrapper -->
+            <div class="home-wrapper">
+                <div class="container">
+                    <div class="row">
+
+                        <!-- home content -->
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="home-content">
+                                <h1 class="white-text">404 Error</h1>
+                                <p class="white-text">Your computer will restart in 10 seconds
+                                </p>
+                                <button class="white-btn">Yes </button>
+                                <button class="main-btn">No</button>
+                            </div>
+                        </div>
+                        <!-- /home content -->
+
+                    </div>
+                </div>
+                <!-- /home wrapper -->
             </div>
-        </div>
-    </nav>
+    </header>
 
-    <!-- Modal -->
+    <!-- /Header -->
     <div id="mymodal">
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog modal-lg">
@@ -72,12 +134,12 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title firstModalTitle"></h4>
                     </div>
-                    <div class="modal-body firstModalBody">
-
+                    <div class="text-center modal-body firstModalBody">
+                        <p>Do you want to check in</p>
                     </div>
                     <div class="text-center modal-footer">
                         <button id="checkin" type="button" class=" btn btn-default">Check In</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" id="seeUsers" class="btn btn-default" data-dismiss="modal">See who is here!</button>
                     </div>
                 </div>
 
@@ -101,20 +163,18 @@
                     <form id="checkinForm" action="" method="">
 
                         <!-- <input type="checkbox" name="vehicle" value="Bike">Bike<br>
-                        <input type="checkbox" name="vehicle" value="Car" checked>house<br>
-                        <input id="submit" type="button" value="Submit"> -->
+                            <input type="checkbox" name="vehicle" value="Car" checked>house<br>
+                            <input id="submit" type="button" value="Submit"> -->
                     </form>
                 </div>
-                <div class="modal-footer">
-                    <p class="text-center"><button type="button" id="submitData" class="btn btn-default" data-dismiss="modal">Submit</button></p>
+                <div class="secondFooter modal-footer">
                 </div>
             </div>
 
         </div>
     </div>
-    <div id="map"></div>
-    <!-- Trigger the modal with a button -->
 
+    <!-- chat box -->
     <aside id="sidebar_secondary" class="tabbed_sidebar ng-scope chat_sidebar">
 
         <div class="popup-head">
@@ -125,7 +185,7 @@
                 <button class="chat-header-button" type="button"><i class="glyphicon glyphicon-earphone"></i></button>
                 <div class="btn-group gurdeepoushan">
                     <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
-                                                   <i class="glyphicon glyphicon-paperclip"></i> </button>
+                                                       <i class="glyphicon glyphicon-paperclip"></i> </button>
                     <ul role="menu" class="dropdown-menu pull-right">
                         <li><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Gallery</a></li>
                         <li><a href="#"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Photo</a></li>
@@ -206,22 +266,127 @@
             <div class="uk-input-group">
                 <div class="gurdeep-chat-box">
                     <span style="vertical-align: sub;" class="uk-input-group-addon">
-                    <a href="#"><i class="fa fa-smile-o"></i></a>
-                    </span>
-                    <input type="text" placeholder="Type a message" id="submit_message" name="submit_message" class="md-input">
+                        <a href="#"><i class="fa fa-smile-o"></i></a>
+                        </span>
+
+                    <input type="text" placeholder="Type a message" id="submit_message" style="width:75%" name="submit_message" class="md-input">
                     <span style="vertical-align: sub;" class="uk-input-group-addon">
-                    <a href="#"><i class="fa fa-camera"></i></a>
-                    </span>
+                            <a href="#"><i class="fa fa-camera"></i></a>
+                        </span>
                 </div>
 
                 <span class="uk-input-group-addon">
-                <a href="#"><i class="glyphicon glyphicon-send"></i></a>
-                </span>
+                    <a href="#"><i class="glyphicon glyphicon-send"></i></a>
+                    </span>
             </div>
         </div>
 
         </div>
     </aside>
+    <!-- About -->
+    <div id="about" class="section md-padding">
+
+        <!-- Container -->
+        <div class="container">
+
+            <!-- Row -->
+            <div class="row">
+
+                <!-- Section header -->
+                <div class="section-header text-center">
+                    <h2 class="title">Welcome to BarkPark</h2>
+                </div>
+                <!-- /Section header -->
+
+                <!-- about -->
+                <div class="col-md-4">
+                    <div class="about">
+                        <i class="fa fa-cogs"></i>
+                        <p>Something</p>
+                    </div>
+                </div>
+                <!-- /about -->
+
+                <!-- about -->
+                <div class="col-md-4">
+                    <div class="about">
+                        <i class="fa fa-magic"></i>
+                        <p>Something</p>
+                    </div>
+                </div>
+                <!-- /about -->
+
+                <!-- about -->
+                <div class="col-md-4">
+                    <div class="about">
+                        <i class="fa fa-mobile"></i>
+                        <p>Something</p>
+                    </div>
+                </div>
+                <!-- /about -->
+
+            </div>
+            <!-- /Row -->
+
+        </div>
+        <!-- /Container -->
+
+    </div>
+    <!-- /About -->
+    <!-- Service -->
+    <div id="profile" class="section md-padding">
+
+        <!-- Container -->
+        <div class="container">
+
+            <!-- Row -->
+            <div class="row">
+
+                <!-- Section header -->
+                <div class="section-header text-center">
+                    <h2 class="title">Profile</h2>
+                </div>
+                <!-- /Section header -->
+            </div>
+            <!-- /Row -->
+        </div>
+        <!-- /Container -->
+    </div>
+    <!-- /Service -->
+
+
+
+    <!-- Service -->
+    <div id="parkMap" class="section md-padding">
+
+        <!-- Container -->
+        <div class="container">
+
+            <!-- Row -->
+            <div class="row">
+
+                <!-- Section header -->
+                <div class="section-header text-center">
+                    <h2 class="title">BarkPark Map</h2>
+                </div>
+                <!-- /Section header -->
+
+                <!-- service -->
+                <!-- service -->
+                <div class="col-md-7 col-sm-7">
+                    <div id="map" style="width: 100%; height: 400px;-webkit-filter: grayscale(100%);filter: grayscale(0%);"></div>
+                </div>
+                <div style="border:solid; border-color:black;max-height:400px; height:400px" class="col-md-5 col-sm-5">
+                    <div style="overflow-y:scroll;" id="userInfor">
+                    </div>
+                </div>
+                <!-- /service -->
+            </div>
+            <!-- /Row -->
+        </div>
+        <!-- /Container -->
+    </div>
+    <!-- /Service -->
 
 
 
@@ -229,8 +394,278 @@
 
 
 
+    <!-- Team -->
+    <div id="team" class="section md-padding">
+
+        <!-- Container -->
+        <div class="container">
+
+            <!-- Row -->
+            <div class="row">
+
+                <!-- Section header -->
+                <div class="section-header text-center">
+                    <h2 class="title">Our Team</h2>
+                </div>
+                <!-- /Section header -->
+
+                <!-- team -->
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="team">
+                                <div class="team-img">
+                                    <img class="img-responsive" src="assets/image/barkPark3.jpg" alt="">
+                                    <div class="overlay">
+                                        <div class="team-social">
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-content">
+                                    <h3>Eddie Zhao</h3>
+                                    <span>Web Designer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /team -->
+                        <div class="col-sm-4">
+                            <div class="team">
+                                <div class="team-img">
+                                    <img class="img-responsive" src="assets/image/barkPark2.jpg" alt="">
+                                    <div class="overlay">
+                                        <div class="team-social">
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-content">
+                                    <h3>Zach P</h3>
+                                    <span>Web Designer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- team -->
+                        <div class="col-sm-4">
+                            <div class="team">
+                                <div class="team-img">
+                                    <img class="img-responsive" src="assets/image/barkPark2.jpg" alt="">
+                                    <div class="overlay">
+                                        <div class="team-social">
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-content">
+                                    <h3>Troy C</h3>
+                                    <span>Web Designer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /team -->
+                    </div>
+
+
+                    <!-- team -->
+                    <div class="row">
+                        <div class="col-sm-2"></div>
+                        <div class="col-sm-4">
+                            <div class="team">
+                                <div class="team-img">
+                                    <img class="img-responsive" src="assets/image/barkPark2.jpg" alt="">
+                                    <div class="overlay">
+                                        <div class="team-social">
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-content">
+                                    <h3>Petet J</h3>
+                                    <span>Web Designer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /team -->
+                        <div class="col-sm-4">
+                            <div class="team">
+                                <div class="team-img">
+                                    <img class="img-responsive" src="assets/image/barkPark2.jpg" alt="">
+                                    <div class="overlay">
+                                        <div class="team-social">
+                                            <a href="#"><i class="fa fa-facebook"></i></a>
+                                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                                            <a href="#"><i class="fa fa-twitter"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="team-content">
+                                    <h3>Luis R</h3>
+                                    <span>Web Designer</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Row -->
+
+        </div>
+        <!-- /Container -->
+
+    </div>
+    <!-- /Team -->
+
+
+    <!-- Contact -->
+    <div id="contact" class="section md-padding">
+
+        <!-- Container -->
+        <div class="container">
+
+            <!-- Row -->
+            <div class="row">
+
+                <!-- Section-header -->
+                <div class="section-header text-center">
+                    <h2 class="title">Get in touch</h2>
+                </div>
+                <!-- /Section-header -->
+
+                <!-- contact -->
+                <div class="col-sm-4">
+                    <div class="contact">
+                        <i class="fa fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p>111-111-1111</p>
+                    </div>
+                </div>
+                <!-- /contact -->
+
+                <!-- contact -->
+                <div class="col-sm-4">
+                    <div class="contact">
+                        <i class="fa fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>email@support.com</p>
+                    </div>
+                </div>
+                <!-- /contact -->
+
+                <!-- contact -->
+                <div class="col-sm-4">
+                    <div class="contact">
+                        <i class="fa fa-map-marker"></i>
+                        <h3>Address</h3>
+                        <p>1739 Bubby Drive</p>
+                    </div>
+                </div>
+                <!-- /contact -->
+
+                <!-- contact form -->
+                <div class="col-md-8 col-md-offset-2">
+                    <form class="contact-form">
+                        <input type="text" class="input" placeholder="Name">
+                        <input type="email" class="input" placeholder="Email">
+                        <input type="text" class="input" placeholder="Subject">
+                        <textarea class="input" placeholder="Message"></textarea>
+                        <button class="main-btn">Send message</button>
+                    </form>
+                </div>
+                <!-- /contact form -->
+
+            </div>
+            <!-- /Row -->
+
+        </div>
+        <!-- /Container -->
+
+    </div>
+    <!-- /Contact -->
+
+
+    <!-- Footer -->
+    <footer id="footer" class="sm-padding bg-dark">
+
+        <!-- Container -->
+        <div class="container">
+
+            <!-- Row -->
+            <div class="row">
+
+                <div class="col-md-12">
+
+                    <!-- footer logo -->
+                    <div class="footer-logo">
+                        <!-- <a href="index.html"><img src="img/logo-alt.png" alt="logo"></a> -->
+                    </div>
+                    <!-- /footer logo -->
+
+                    <!-- footer follow -->
+                    <ul class="footer-follow">
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                    </ul>
+                    <!-- /footer follow -->
+
+                    <!-- footer copyright -->
+                    <div class="footer-copyright">
+                        <p>Copyright © 2018 Project2</a>
+                        </p>
+                    </div>
+                    <!-- /footer copyright -->
+
+                </div>
+
+            </div>
+            <!-- /Row -->
+
+        </div>
+        <!-- /Container -->
+
+    </footer>
+    <!-- /Footer -->
+
+    <!-- Back to top -->
+    <div id="back-to-top"></div>
+    <!-- /Back to top -->
+
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- /Preloader -->
+
+    <!-- jQuery Plugins -->
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6NlS01JXVsAkq6HYU0u0ltTwa3wGCQZw&libraries=places&callback=initMap" async defer></script>
+    <script src="assets/js/map.js"></script> -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6NlS01JXVsAkq6HYU0u0ltTwa3wGCQZw&libraries=places&callback=initMap" async defer></script>
     <script src="assets/js/map.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.magnific-popup.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+
+
 </body>
 
 </html>
