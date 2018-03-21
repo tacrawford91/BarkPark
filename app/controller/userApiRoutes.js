@@ -18,32 +18,11 @@ router.get("/allusers", (req, res) => {
     });
 });
 
-//Create New User
+//Create New User - Sign up Form
 router.post("/user", (req, res) => {
     db.User.create(req.body).then((dbPost) => {
         res.json(dbPost);
     })
-});
-
-// Update user
-router.put("/user/:id", (req,res)=> {
-    // var io = req.io;
-    var updatedUser = {
-        user_name: req.body.user_name,
-        password: req.body.password,
-        email: req.body.email,
-        dog_name: req.body.dog_name,
-        dog_type: req.body.dog_type,
-        dog_color: req.body.dog_color,
-        dog_weight: req.body.dog_weight,
-        dog_rating: req.body.dog_rating
-    }
-    db.User.update(updatedUser, {where: {id: req.params.id}}).then( (data) => {
-        console.log(data);
-        req.app.io.emit('test1', {test:"please work"});
-        res.json(data)
-
-    });
 });
 
 //get users at certain park 
@@ -53,14 +32,14 @@ router.get("/user/park/:currentParkID", (req, res) => {
     });
 });
 
-//update users 
+//update users current park location
 router.put("/user/park/:userID", (req, res) => {
-        var updatedUser = {
-            currentParkID: req.body.currentParkID
-        }
-    db.User.update(updatedUser, {where:{id: req.params.userID }}).then((data) => {
-        res.json(data)
-    });
+    var updatedUser = {
+        currentParkID: req.body.currentParkID
+    }
+db.User.update(updatedUser, {where:{id: req.params.userID }}).then((data) => {
+    res.json(data)
+});
 });
 
 //Delete user
@@ -69,6 +48,27 @@ router.delete("/user/:id", (req,res)=> {
         res.json(data)
     });
 });
+
+// Update user
+// router.put("/user/:id", (req,res)=> {
+//     // var io = req.io;
+//     var updatedUser = {
+//         user_name: req.body.user_name,
+//         password: req.body.password,
+//         email: req.body.email,
+//         dog_name: req.body.dog_name,
+//         dog_type: req.body.dog_type,
+//         dog_color: req.body.dog_color,
+//         dog_weight: req.body.dog_weight,
+//         dog_rating: req.body.dog_rating
+//     }
+//     db.User.update(updatedUser, {where: {id: req.params.id}}).then( (data) => {
+//         console.log(data);
+//         req.app.io.emit('test1', {test:"please work"});
+//         res.json(data)
+
+//     });
+// });
 
 
 module.exports = router;

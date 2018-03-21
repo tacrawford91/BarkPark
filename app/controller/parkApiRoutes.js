@@ -4,9 +4,6 @@ var router = express.Router();
 // Requiring models
 var db = require("../models");
 
-//socket io
-// var io = require('socket.io')(http);
-
 //Get single park
 router.get("/park/:id", (req,res)=> {
     db.Park.findOne({where: {id: req.params.id}}).then( (data) => {
@@ -30,17 +27,6 @@ router.post("/park", (req,res) => {
     });
 });
 
-// Update Park
-router.put("/park/:id", (req,res)=> {
-    var updatedPark = {
-        park_name: req.body.park_name,
-        address: req.body.address
-    }
-    db.Park.update(updatedPark, {where: {id: req.params.id}}).then( (data) => {
-        console.log(data);
-        res.json(data)
-    });
-});
 
 // Update dog population 
 router.put("/park/newDog/:id", (req,res)=> {
@@ -61,5 +47,16 @@ router.delete("/park/:id", (req,res)=> {
     });
 });
 
+// Update Park
+// router.put("/park/:id", (req,res)=> {
+//     var updatedPark = {
+//         park_name: req.body.park_name,
+//         address: req.body.address
+//     }
+//     db.Park.update(updatedPark, {where: {id: req.params.id}}).then( (data) => {
+//         console.log(data);
+//         res.json(data)
+//     });
+// });
 
 module.exports = router;
