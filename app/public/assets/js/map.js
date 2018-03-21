@@ -82,14 +82,15 @@ function addMarker(data) {
         };
         var cnt = new google.maps.LatLng(location);
         var marker = new google.maps.Marker({
-            map: map,
-            label: {
-                color: "red",
-                text: data[i].dog_count.toString()
-            },
-            icon: icon
+                map: map,
+                label: {
+                    color: "red",
+                    text: "10"
+                },
+                icon: icon
 
-        })
+            })
+            // data[i].dog_count.toString()
         marker.set("id", 1);
         marker.setPosition(cnt);
         myMarker.push(marker);
@@ -137,9 +138,12 @@ function addMarker(data) {
                 })
 
                 $("#seeUsers").on("click", function() {
-                    $.get("/api/allusers", function(myData) {
+                    console.log(i)
+                    var c = i + 1
+
+                    $.get("/api/user/park/" + c, function(myData) {
                         $("#userinfor").empty()
-                        $("#userInfor").text(JSON.stringify(myData[0]) + i)
+                        $("#userInfor").text(JSON.stringify(myData[0].dog_name))
                     })
                 })
 
