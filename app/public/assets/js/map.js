@@ -134,23 +134,25 @@ function addMarker(data) {
 
                     //     $(".firstModalBody").append(p)
                     // });
+                    $(".firstFooter").empty()
+                    $(".firstFooter").append(`<button data-id=${i} id="checkin" type="button" class=" btn btn-default">Check In</button>`).append(` <button type="button" data-id=${i} id="seeUsers" class="btn btn-default" data-dismiss="modal">See who is here!</button>`)
                     $('#myModal').modal('show');
                 })
 
-                $("#seeUsers").on("click", function() {
-                    console.log(i)
-                    var c = i + 1
 
-                    $.get("/api/user/park/" + c, function(myData) {
-                        $("#userinfor").empty()
-                        $("#userInfor").text(JSON.stringify(myData[0].dog_name))
-                    })
-                })
 
 
             }
         })(marker, i));
-
+        $(document).on("click", "#seeUsers", function() {
+            var btnID = $(this).attr("data-id")
+            var c = Number(btnID) + 1
+            console.log(c)
+            $.get("/api/user/park/" + c, function(myData) {
+                $("#userinfor").empty()
+                $("#userInfor").text(JSON.stringify(myData[0]["dog_name"]))
+            })
+        })
         $(document).on("click", "#submitData", function() {
             var newID = $(this).attr("data-id");
 
