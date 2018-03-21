@@ -70,8 +70,8 @@ function createMarker(callback) {
 function addMarker(data) {
     var icon = {
         url: "assets/image/dog.png",
-        labelOrigin: new google.maps.Point(9, -8),
-        scaledSize: new google.maps.Size(20, 20),
+        labelOrigin: new google.maps.Point(15, -8),
+        scaledSize: new google.maps.Size(30, 30),
         origin: new google.maps.Point(0, 0),
         id: 1 // origin
     }
@@ -82,15 +82,17 @@ function addMarker(data) {
         };
         var cnt = new google.maps.LatLng(location);
         var marker = new google.maps.Marker({
-                map: map,
-                label: {
-                    color: "red",
-                    text: "10"
-                },
-                icon: icon
+            map: map,
+            label: {
+                color: "red",
+                text: "10"
+            },
 
-            })
-            // data[i].dog_count.toString()
+            icon: icon
+
+        })
+
+        // data[i].dog_count.toString()
         marker.set("id", 1);
         marker.setPosition(cnt);
         myMarker.push(marker);
@@ -120,7 +122,8 @@ function addMarker(data) {
                 // $.post("/api/park"+data[i].id,{},function(res){
 
                 // })
-
+                marker.setAnimation(google.maps.Animation.BOUNCE)
+                setTimeout(function() { marker.setAnimation(null); }, 2000);
                 $.get("/api/parkall", function(result) {
                     // $(".firstModalBody").empty();
                     $(".firstModalTitle").text(data[i].park_name)
@@ -138,10 +141,6 @@ function addMarker(data) {
                     $(".firstFooter").append(`<button data-id=${i} id="checkin" type="button" class=" btn btn-default">Check In</button>`).append(` <button type="button" data-id=${i} id="seeUsers" class="btn btn-default" data-dismiss="modal">See who is here!</button>`)
                     $('#myModal').modal('show');
                 })
-
-
-
-
             }
         })(marker, i));
         $(document).on("click", "#seeUsers", function() {
@@ -149,8 +148,10 @@ function addMarker(data) {
             var c = Number(btnID) + 1
             console.log(c)
             $.get("/api/user/park/" + c, function(myData) {
-                $("#userinfor").empty()
-                $("#userInfor").text(JSON.stringify(myData[0]["dog_name"]))
+                $("#userInfor").empty()
+                myData.forEach(element => {
+                    $("#userInfor").append(JSON.stringify(element["dog_name"]).replace(/\"/g, "") + "<br>")
+                });
             })
         })
         $(document).on("click", "#submitData", function() {
