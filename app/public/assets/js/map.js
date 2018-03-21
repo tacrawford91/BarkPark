@@ -121,21 +121,27 @@ function addMarker(data) {
                 // })
 
                 $.get("/api/parkall", function(result) {
-                    $(".firstModalBody").empty();
+                    // $(".firstModalBody").empty();
                     $(".firstModalTitle").text(data[i].park_name)
                     $(".secondFooter").empty()
                     $(".secondFooter").append(`<p class="text-center"><button data-id=${i} type="button" id="submitData" class="btn btn-default" data-dismiss="modal">Submit</button></p>
                         `)
-                    result.forEach(element => {
+                        // result.forEach(element => {
 
-                        var p = $(`<p id="${element["id"]}">`)
-                        p.append(element["id"] + ". " + element['park_name'])
+                    //     var p = $(`<p id="${element["id"]}">`)
+                    //     p.append(element["id"] + ". " + element['park_name'])
 
-                        $(".firstModalBody").append(p)
-                    });
+                    //     $(".firstModalBody").append(p)
+                    // });
                     $('#myModal').modal('show');
                 })
 
+                $("#seeUsers").on("click", function() {
+                    $.get("/api/allusers", function(myData) {
+                        $("#userinfor").empty()
+                        $("#userInfor").text(JSON.stringify(myData[0]) + i)
+                    })
+                })
 
 
             }
@@ -150,6 +156,7 @@ function addMarker(data) {
                 marker: newID
             };
             console.log(dogCountUpdate)
+
 
             $.ajax({
                 url: `/api/park/newDog/${dogCountUpdate.parkID}`,
