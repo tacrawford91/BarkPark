@@ -20,8 +20,6 @@ router.get("/allusers", (req, res) => {
 
 //Create New User
 router.post("/user", (req, res) => {
-    console.log(req.body);
-    console.log("hello t & L")
     db.User.create(req.body).then((dbPost) => {
         res.json(dbPost);
     })
@@ -45,6 +43,23 @@ router.put("/user/:id", (req,res)=> {
         req.app.io.emit('test1', {test:"please work"});
         res.json(data)
 
+    });
+});
+
+//get users at certain park 
+router.get("/user/park/:currentParkID", (req, res) => {
+    db.User.findAll({ where: { currentParkID: req.params.currentParkID } }).then((data) => {
+        res.json(data)
+    });
+});
+
+//update users 
+router.put("/user/park/:userID", (req, res) => {
+        var updatedUser = {
+            currentParkID: req.body.currentParkID
+        }
+    db.User.update(updatedUser, {where:{id: req.params.userID }}).then((data) => {
+        res.json(data)
     });
 });
 
