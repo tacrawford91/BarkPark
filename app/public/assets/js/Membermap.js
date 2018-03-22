@@ -165,6 +165,10 @@ function addMarker(data) {
             console.log(c)
             $.get("/api/user/park/" + c, function(myData) {
                 $("#userInfor").empty()
+                var image = new Image();
+                console.log(myData[0]['picture'])
+                image.src = myData[0]["picture"];
+                $("#userInfor").append(image)
                 myData.forEach(element => {
                     $("#userInfor").append(JSON.stringify(element["dog_name"]).replace(/\"/g, "") + "<br>")
                 });
@@ -181,6 +185,10 @@ function addMarker(data) {
 
             $.get("/api/user/park/" + rightID, function(myData) {
                 $("#userInfor").empty()
+                var image = new Image();
+                console.log(myData[0]['picture'])
+                image.src = myData[0]["picture"];
+                $("#userInfor").append(image)
                 myData.forEach(element => {
                     $("#userInfor").append(JSON.stringify(element["dog_name"]).replace(/\"/g, "") + "<br>")
                 });

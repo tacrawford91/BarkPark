@@ -128,6 +128,11 @@ function addMarker(data) {
                 var id = Number(i) + 1
                 $.get("/api/user/park/" + id, function(myData) {
                     $("#userInfor").empty()
+                    var image = new Image();
+                    console.log(myData[0]['picture'])
+                    image.src = myData[0]["picture"];
+                    $("#userInfor").append(image);
+                    console.log(myData)
                     myData.forEach(element => {
                         $("#userInfor").append(JSON.stringify(element["dog_name"]).replace(/\"/g, "") + "<br>")
                     });
