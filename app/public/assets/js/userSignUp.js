@@ -29,19 +29,19 @@ $(document).ready(function() {
 
             password: $('#password-input').val().trim(),
 
-            //	ownersname: $('#owners-name').val().trim(),
+            owner_Name: $('#owners-name').val().trim(),
 
             dog_name: $('#dogsname').val().trim(),
 
-            //	breed: $('#breed').val().trim(),
+            breed: $('#breed').val().trim(),
 
-            //	weight: $('#weight').val().trim(),
+            weight: $('#weight').val().trim(),
 
-            //	age: $('#age').val().trim(),
+            age: $('#age').val().trim(),
 
             picture: base64,
 
-            currentParkID: 1
+            currentParkID: 0
 
         };
 
