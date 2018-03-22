@@ -10,14 +10,13 @@
     <title>HTML Template</title>
 
     <!-- Google font -->
-
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
     <!-- Bootstrap -->
 
+
     <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 
     <!-- Owl Carousel -->
@@ -28,7 +27,6 @@
     <link type="text/css" rel="stylesheet" href="assets/css/magnific-popup.css" />
 
     <!-- Font Awesome Icon -->
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
@@ -46,26 +44,24 @@
 
 <body>
     <!-- Header -->
-    <header id="home">
+    <header id="home" style="height:1px;">
         <!-- Background Image -->
+
         <div class="bg-img" style="background-image: url('assets/image/barkPark1.jpg');">
+
             <div class="overlay"></div>
         </div>
         <!-- /Background Image -->
-
         <!-- Nav -->
         <nav id="nav" class="navbar nav-transparent">
             <div class="container">
-
                 <div class="navbar-header">
                     <!-- Logo -->
                     <div class="navbar-brand">
-                        <a href="index.html">
+                        <a href="#home">
                             <br>
                             <p style="color:#f14444;">BarkPark</p>
                         </a>
-
-
                     </div>
                     <!-- /Logo -->
 
@@ -78,14 +74,10 @@
 
                 <!--  Main navigation  -->
                 <ul class="main-nav nav navbar-nav navbar-right">
-                    <li style="color:#f14444;"><a href="#home"><i class="fa fa-fw fa-bell-o"></i>Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#profile">Profile</a></li>
-                    <li><a href="#parkMap">Park Map</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a id="addClass" href="#">Message<span style="background:gold"class="badge">1</span></a></li>
-                    <li><a href="#login">Sign In</a></li>
+                    <li><a href="#profile" style="color:black;">Profile</a></li>
+                    <li><a href="#parkMap" style="color:black;">Park Map</a></li>
+                    <li><a href="#team" style="color:black;">Team</a></li>
+                    <!-- <li><a id="addClass" href="#">Message<span style="background:gold"class="badge">1</span></a></li> -->
                 </ul>
                 <!-- /Main navigation -->
 
@@ -118,8 +110,55 @@
     </header>
     <!-- /Header -->
 
+
+
+
+    <div id="mymodal">
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title firstModalTitle"></h4>
+                    </div>
+                    <div class="text-center modal-body firstModalBody">
+                        <p>Do you want to check in</p>
+                    </div>
+                    <div class="firstFooter text-center modal-footer">
+                        <button id="checkin" type="button" class=" btn btn-default">Check In</button>
+                        <button type="button" id="seeUsers" class="btn btn-default" data-dismiss="modal">See who is here!</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal -->
+    <div id="checkinModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title secondModalTitle">Modal Header</h4>
+                </div>
+                <div class="modal-body secondModalBody">
+                    The number of dogs in this park<input type="text" id="dogNumber">
+                </div>
+                <div class="secondFooter modal-footer">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
     <!-- chat box -->
-    <aside id="sidebar_secondary" class="tabbed_sidebar ng-scope chat_sidebar">
+    <!-- <aside id="sidebar_secondary" class="tabbed_sidebar ng-scope chat_sidebar">
 
         <div class="popup-head">
             <div class="popup-head-left pull-left">
@@ -226,136 +265,40 @@
         </div>
 
         </div>
-    </aside>
-    <!-- About -->
-    <div id="about" class="section md-padding">
+    </aside> -->
 
-        <!-- Container -->
-        <div class="container">
-
-            <!-- Row -->
-            <div class="row">
-
-                <!-- Section header -->
-                <div class="section-header text-center">
-                    <h2 class="title">Welcome to BarkPark</h2>
-                </div>
-                <!-- /Section header -->
-
-                <!-- about -->
-                <div class="col-md-4">
-                    <div class="about">
-                        <i class="fa fa-cogs"></i>
-
+    <!-- Service (Profile) -->
+        <div id="profile" class="section md-padding">
+            <div class="container">
+                <div class="row text-center" id="heading">
+                    <div class="col-md-6 col-md-offset-3 wow animated zoomInDown" id="heading-text">
+                        <h3>Profile</h3>
+                        <hr class="full">
+                        <br/>
                     </div>
                 </div>
-                <!-- /about -->
-
-                <!-- about -->
-                <div class="col-md-4">
-                    <div class="about">
-                        <i class="fa fa-magic"></i>
-
+                <!-- row -->
+                <div class="row about-us-text">
+                    <div class="col-md-12 col-sm-12 text-center">
+                        <div class="row wow animated zoomIn">
+                            <div class="col-md-8 col-md-offset-2">
+                                <img class="img-circle img-responsive center-block" style="width:300px;height:300px;" src="assets/image/dog2.png" alt="Default-Dog-Pic">
+                            </div>
+                        </div>
+                        <p class="member-title wow animated fadeIn">Dog Name: ---------- <br></p>
+                        <p class="team-member-description wow animated fadeIn"> Owner Name: ----------</p>
+                        <p class="team-member-description wow animated fadeIn">Breed: ----------</p>
+                        <p class="team-member-description wow animated fadeIn">Age: ----------</p>
+                        <p class="team-member-description wow animated fadeIn">Weight: ---------- </p>
                     </div>
+                    <!-- col-md-4 -->
                 </div>
-                <!-- /about -->
-
-                <!-- about -->
-                <div class="col-md-4">
-                    <div class="about">
-                        <i class="fa fa-mobile"></i>
-
-                    </div>
-                </div>
-                <!-- /about -->
-
+                <!-- row -->
             </div>
-            <!-- /Row -->
-
         </div>
-        <!-- /Container -->
-
-    </div>
-    <!-- /About -->
     <!-- Service -->
-    <div id="profile" class="section md-padding">
 
-        <!-- Container -->
-        <div class="container">
-
-            <!-- Row -->
-            <div class="row">
-
-                <!-- Section header -->
-                <div class="section-header text-center">
-                    <h2 class="title">Profile</h2>
-                </div>
-                <!-- /Section header -->
-            </div>
-            <!-- /Row -->
-        </div>
-        <!-- /Container -->
-    </div>
-    <!-- /Service -->
-    <div id="login" class="section md-padding">
-
-        <!-- Container -->
-        <div class="container">
-
-            <!-- Row -->
-            <!-- <div class="row"> -->
-            <div class="row text-center" id="heading">
-                <!-- Section header -->
-                <div class="section-header text-center">
-                    <h2 class="title">Log In</h2>
-                </div>
-                <!-- Login -->
-                <div class="col-md-6 col-md-offset-3 wow animated zoomInDown" id="heading-text">
-                    <div class="myform">
-                        <form class="form">
-                            <input type="text" placeholder="Username"><br>
-                            <input type="password" placeholder="Password"><br>
-                            <br>
-                            <button type="submit" class="btn btn-default login-button">Login</button>
-
-                            <hr>
-                            <p class="message signIn">Not registered? <a href="#">Create an account</a></p>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <!-- row -->
-
-            <!-- container -->
-            </section>
-            <!-- Login-->
-
-            <!-- /Section header -->
-        </div>
-        <!-- /Row -->
-    </div>
-    <!-- Service -->
-    <div id="signup" class="section md-padding">
-
-        <!-- Container -->
-        <div class="container">
-
-            <!-- Row -->
-            <div class="row">
-
-                <!-- Section header -->
-                <div class="section-header text-center">
-                    <h2 class="title">Sign Up</h2>
-                </div>
-                <!-- /Section header -->
-            </div>
-            <!-- /Row -->
-        </div>
-        <!-- /Container -->
-    </div>
-    <!-- /Service -->
-
-    <!-- Service -->
+    <!-- Service (Park Map) -->
     <div id="parkMap" class="section md-padding">
 
         <!-- Container -->
@@ -389,12 +332,6 @@
     </div>
     <!-- /Service -->
 
-
-
-
-
-
-
     <!-- Team -->
     <div id="team" class="section md-padding">
 
@@ -416,7 +353,9 @@
                         <div class="col-sm-4">
                             <div class="team">
                                 <div class="team-img">
+
                                     <img class="img-responsive" src="assets/image/barkPark3.jpg" alt="">
+
                                     <div class="overlay">
                                         <div class="team-social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -435,7 +374,9 @@
                         <div class="col-sm-4">
                             <div class="team">
                                 <div class="team-img">
+
                                     <img class="img-responsive" src="assets/image/barkPark2.jpg" alt="">
+
                                     <div class="overlay">
                                         <div class="team-social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -454,7 +395,9 @@
                         <div class="col-sm-4">
                             <div class="team">
                                 <div class="team-img">
+
                                     <img class="img-responsive" src="assets/image/barkPark2.jpg" alt="">
+
                                     <div class="overlay">
                                         <div class="team-social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -477,7 +420,9 @@
                         <div class="col-sm-4">
                             <div class="team">
                                 <div class="team-img">
+
                                     <img class="img-responsive" src="assets/image/barkPark2.jpg" alt="">
+
                                     <div class="overlay">
                                         <div class="team-social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -496,7 +441,9 @@
                         <div class="col-sm-4">
                             <div class="team">
                                 <div class="team-img">
+
                                     <img class="img-responsive" src="assets/image/barkPark2.jpg" alt="">
+
                                     <div class="overlay">
                                         <div class="team-social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -524,74 +471,6 @@
     </div>
     <!-- /Team -->
 
-
-    <!-- Contact -->
-    <div id="contact" class="section md-padding">
-
-        <!-- Container -->
-        <div class="container">
-
-            <!-- Row -->
-            <div class="row">
-
-                <!-- Section-header -->
-                <div class="section-header text-center">
-                    <h2 class="title">Get in touch</h2>
-                </div>
-                <!-- /Section-header -->
-
-                <!-- contact -->
-                <div class="col-sm-4">
-                    <div class="contact">
-                        <i class="fa fa-phone"></i>
-                        <h3>Phone</h3>
-                        <p>512-421-3940</p>
-                    </div>
-                </div>
-                <!-- /contact -->
-
-                <!-- contact -->
-                <div class="col-sm-4">
-                    <div class="contact">
-                        <i class="fa fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p>email@support.com</p>
-                    </div>
-                </div>
-                <!-- /contact -->
-
-                <!-- contact -->
-                <div class="col-sm-4">
-                    <div class="contact">
-                        <i class="fa fa-map-marker"></i>
-                        <h3>Address</h3>
-                        <p>1739 Bubby Drive</p>
-                    </div>
-                </div>
-                <!-- /contact -->
-
-                <!-- contact form -->
-                <div class="col-md-8 col-md-offset-2">
-                    <form class="contact-form">
-                        <input type="text" class="input" placeholder="Name">
-                        <input type="email" class="input" placeholder="Email">
-                        <input type="text" class="input" placeholder="Subject">
-                        <textarea class="input" placeholder="Message"></textarea>
-                        <button class="main-btn">Send message</button>
-                    </form>
-                </div>
-                <!-- /contact form -->
-
-            </div>
-            <!-- /Row -->
-
-        </div>
-        <!-- /Container -->
-
-    </div>
-    <!-- /Contact -->
-
-
     <!-- Footer -->
     <footer id="footer" class="sm-padding bg-dark">
 
@@ -609,20 +488,9 @@
                     </div>
                     <!-- /footer logo -->
 
-                    <!-- footer follow -->
-                    <ul class="footer-follow">
-                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube"></i></a></li>
-                    </ul>
-                    <!-- /footer follow -->
-
                     <!-- footer copyright -->
                     <div class="footer-copyright">
-                        <p>Copyright © 2018 Project2</a>
+                        <p>Copyright © 2018 Mallards Project 2</a>
                         </p>
                     </div>
                     <!-- /footer copyright -->
@@ -654,17 +522,21 @@
     <!-- /Preloader -->
 
     <!-- jQuery Plugins -->
+
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.magnific-popup.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6NlS01JXVsAkq6HYU0u0ltTwa3wGCQZw&libraries=places&callback=initMap" async defer></script>
+
     <script src="assets/js/Membermap.js"></script>
+
 </body>
 
 </html>
