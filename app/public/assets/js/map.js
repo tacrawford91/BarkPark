@@ -85,14 +85,14 @@ function addMarker(data) {
             map: map,
             label: {
                 color: "red",
-                text: "10"
+                text: data[i].dog_count.toString()
             },
 
             icon: icon
 
         })
 
-        // data[i].dog_count.toString()
+
         marker.set("id", 1);
         marker.setPosition(cnt);
         myMarker.push(marker);
@@ -156,12 +156,21 @@ function addMarker(data) {
         })
         $(document).on("click", "#submitData", function() {
             var newID = $(this).attr("data-id");
-
+            var rightID = Number(newID) + 1
             var dogCountUpdate = {
                 parkID: data[newID].id,
                 dog_count: Number($("#dogNumber").val().trim()),
                 marker: newID
             };
+
+            $.get("/api/user/park/" + rightID, function(myData) {
+                $("#userInfor").empty()
+                myData.forEach(element => {
+                    $("#userInfor").append(JSON.stringify(element["dog_name"]).replace(/\"/g, "") + "<br>")
+                });
+                $("#myModal").modal("hide")
+            })
+
             console.log(dogCountUpdate)
 
 
