@@ -387,7 +387,7 @@ h5 {
 }
 
 a {
-    color: #f14444;
+    color: #2eb82e;
     ;
     text-decoration: none;
     -webkit-transition: 0.2s opacity;
@@ -399,11 +399,11 @@ a:focus {
     text-decoration: none;
     outline: none;
     opacity: 0.8;
-    color: #f14444;
+    color: #2eb82e;
 }
 
 .main-color {
-    color: #f14444;
+    color: #2eb82e;
     ;
 }
 
@@ -412,13 +412,13 @@ a:focus {
 }
 
 ::-moz-selection {
-    background-color: #f14444;
+    background-color: #2eb82e;
     ;
     color: #FFF;
 }
 
 ::selection {
-    background-color: #f14444;
+    background-color: #2eb82e;
     ;
     color: #FFF;
 }
@@ -443,8 +443,8 @@ ol {
 }
 
 .sm-padding {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 
@@ -457,7 +457,7 @@ ol {
 }
 
 .bg-dark {
-    background-color: #1C1D21;
+    background-color: rgba(96,96,96,0.8);;
 }
 
 
@@ -502,7 +502,7 @@ ol {
     display: block;
     height: 4px;
     width: 40px;
-    background-color: #f14444;
+    background-color: #2eb82e;
     ;
     margin-top: 20px;
 }
@@ -548,7 +548,7 @@ input[type="date"]:focus,
 input[type="url"]:focus,
 input[type="tel"]:focus,
 textarea:focus {
-    border-color: #f14444;
+    border-color: #2eb82e;
     ;
     opacity: 1;
 }
@@ -569,7 +569,7 @@ textarea:focus {
 }
 
 .main-btn {
-    background: #f14444;
+    background: #2eb82e;
     ;
     color: #FFF;
 }
@@ -581,9 +581,9 @@ textarea:focus {
 
 .outline-btn {
     background: transparent;
-    color: #f14444;
+    color: #2eb82e;
     !important;
-    border-color: #f14444;
+    border-color: #2eb82e;
     ;
 }
 
@@ -653,7 +653,7 @@ textarea:focus {
     left: 0;
     right: 0;
     padding: 0px 0px;
-    background-color: #FFF !important;
+    background-color: rgba(96,96,96,0.8);
     border-bottom: 1px solid #EEE;
 }
 
@@ -669,12 +669,12 @@ textarea:focus {
         padding: 0px 15px;
     }
     .main-nav li a {
-        font-size: 14px;
+        font-size: 18px;
         -webkit-transition: 0.2s color;
         transition: 0.2s color;
     }
     .main-nav>li>a {
-        color: #10161A;
+        color: white;
         padding: 15px 0px;
     }
     #nav.nav-transparent:not(.fixed-nav) .main-nav>li>a {
@@ -684,13 +684,13 @@ textarea:focus {
     .main-nav>li>a:focus,
     .main-nav>li.active>a {
         background: transparent;
-        color: #f14444;
+        color: #2eb82e;
         ;
     }
     .main-nav>li>a:after {
         content: "";
         display: block;
-        background-color: #f14444;
+        background-color: #2eb82e;
         ;
         height: 2px;
         width: 0%;
@@ -721,7 +721,7 @@ textarea:focus {
         position: absolute;
         right: -50%;
         top: 0;
-        background-color: #f14444;
+        background-color: #2eb82e;
         ;
         width: 200px;
         -webkit-box-shadow: 0px 5px 5px -5px rgba(53, 64, 82, 0.2);
@@ -810,12 +810,12 @@ textarea:focus {
         transition: 0.2s all;
     }
     .main-nav>li.active {
-        border-left: 6px solid #f14444;
+        border-left: 6px solid #2eb82e;
         ;
     }
     .main-nav li a:hover,
     .main-nav li a:focus {
-        background-color: #f14444;
+        background-color: #2eb82e;
         ;
         color: #FFF;
         opacity: 1;
@@ -986,7 +986,7 @@ header {
 
 .about i {
     font-size: 36px;
-    color: #f14444;
+    color: #2eb82e;
     ;
     margin-bottom: 20px;
 }
@@ -1091,7 +1091,7 @@ header {
     -ms-transform: translateY(100%);
     transform: translateY(100%);
     opacity: 0;
-    color: #f14444;
+    color: #2eb82e;
     ;
     margin-bottom: 5px;
     -webkit-transition: 0.2s all;
@@ -1121,7 +1121,7 @@ header {
     display: inline-block;
     width: 50px;
     height: 50px;
-    background-color: #f14444;
+    background-color: #2eb82e;
     ;
     color: #FFF;
     line-height: 50px;
@@ -1151,7 +1151,7 @@ header {
     left: 20px;
     text-align: center;
     font-size: 32px;
-    color: #f14444;
+    color: #2eb82e;
     ;
     border-radius: 50%;
 }
@@ -1195,9 +1195,9 @@ header {
     float: left;
     padding: 5px;
     border-radius: 50%;
-    color: #f14444;
+    color: #2eb82e;
     ;
-    border: 1px solid #f14444;
+    border: 1px solid #2eb82e;
     ;
     margin-right: 5px;
 }
@@ -1213,7 +1213,7 @@ header {
 }
 
 .number i {
-    color: #f14444;
+    color: #2eb82e;
     ;
     font-size: 36px;
     margin-bottom: 20px;
@@ -1269,7 +1269,7 @@ header {
 }
 
 .pricing:hover .price-title {
-    color: #f14444;
+    color: #2eb82e;
     ;
 }
 
@@ -1281,7 +1281,7 @@ header {
     text-align: center;
     margin: auto;
     border-radius: 50%;
-    border: 2px solid #f14444;
+    border: 2px solid #2eb82e;
     ;
 }
 
@@ -1353,7 +1353,7 @@ header {
 
 .testimonial span {
     font-size: 14px;
-    color: #f14444;
+    color: #2eb82e;
     ;
     text-transform: uppercase;
 }
@@ -1437,7 +1437,7 @@ header {
 }
 
 .team:hover .team-content span {
-    color: #f14444;
+    color: #2eb82e;
     ;
 }
 
@@ -1455,7 +1455,7 @@ header {
     line-height: 50px;
     width: 50px;
     text-align: center;
-    background-color: #f14444;
+    background-color: #2eb82e;
     ;
     color: #FFF;
 }
@@ -1490,7 +1490,7 @@ header {
 }
 
 .blog .blog-meta li i {
-    color: #f14444;
+    color: #2eb82e;
     ;
     margin-right: 5px;
 }
@@ -1531,13 +1531,13 @@ header {
 
 .blog-tags a:hover {
     color: #FFF;
-    background-color: #f14444;
+    background-color: #2eb82e;
     ;
 }
 
 .blog-tags a i {
     margin-right: 3px;
-    color: #f14444;
+    color: #2eb82e;
     ;
 }
 
@@ -1586,7 +1586,7 @@ header {
     border-radius: 3px;
     margin-left: 5px;
     color: #FFF;
-    background-color: #f14444;
+    background-color: #2eb82e;
     ;
 }
 
@@ -1641,14 +1641,14 @@ header {
 
 .blog-comments .media.author {
     background-color: #F4F4F4;
-    border-color: #f14444;
+    border-color: #2eb82e;
     ;
-    border-bottom: 1px solid #f14444;
+    border-bottom: 1px solid #2eb82e;
     ;
 }
 
 .blog-comments .media.author>.media-body>.media-heading {
-    color: #f14444;
+    color: #2eb82e;
     ;
 }
 
@@ -1712,7 +1712,7 @@ header {
     border: none;
     line-height: 40px;
     background-color: transparent;
-    color: #f14444;
+    color: #2eb82e;
     ;
 }
 
@@ -1733,12 +1733,12 @@ header {
 
 .widget-category a span {
     float: right;
-    color: #f14444;
+    color: #2eb82e;
     ;
 }
 
 .widget-category a:hover {
-    color: #f14444;
+    color: #2eb82e;
     ;
 }
 
@@ -1756,7 +1756,7 @@ header {
 
 .widget-tags a:hover {
     color: #FFF;
-    background-color: #f14444;
+    background-color: #2eb82e;
     ;
 }
 
@@ -1781,7 +1781,7 @@ header {
 }
 
 .widget-post a:hover {
-    color: #f14444;
+    color: #2eb82e;
     ;
 }
 
@@ -1792,13 +1792,13 @@ header {
 .widget-post .blog-meta li {
     display: inline-block;
     margin-right: 5px;
-    color: #f14444;
+    color: #2eb82e;
     ;
     font-size: 12px;
 }
 
 .widget-post li i {
-    color: #f14444;
+    color: #2eb82e;
     ;
     margin-right: 5px;
 }
@@ -1815,7 +1815,7 @@ header {
 
 .contact i {
     font-size: 36px;
-    color: #f14444;
+    color: #2eb82e;
     ;
     margin-bottom: 20px;
 }
@@ -1874,7 +1874,7 @@ header {
     line-height: 50px;
     text-align: center;
     border-radius: 3px;
-    background-color: #f14444;
+    background-color: #2eb82e;
     ;
     color: #FFF;
 }
@@ -1975,12 +1975,12 @@ header {
 }
 
 .owl-theme .owl-dots .owl-dot:hover span {
-    background: #f14444;
+    background: #2eb82e;
     ;
 }
 
 .owl-theme .owl-dots .owl-dot.active span {
-    background: #f14444;
+    background: #2eb82e;
     ;
     width: 20px;
 }
@@ -2004,7 +2004,7 @@ header {
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
-    background: #f14444;
+    background: #2eb82e;
     ;
     color: #FFF;
     padding: 0px;
@@ -2025,7 +2025,7 @@ header {
 
 .owl-theme .owl-nav [class*='owl-']:hover {
     opacity: 0.8;
-    background: #f14444;
+    background: #2eb82e;
     ;
 }
 
@@ -2043,7 +2043,7 @@ header {
     height: 50px;
     line-height: 50px;
     text-align: center;
-    background: #f14444;
+    background: #2eb82e;
     ;
     border-radius: 3px;
     color: #FFF;
@@ -2088,7 +2088,7 @@ header {
 
 .preloader span {
     display: inline-block;
-    background-color: #f14444;
+    background-color: #2eb82e;
     ;
     width: 25px;
     height: 25px;
