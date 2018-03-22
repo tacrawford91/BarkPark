@@ -9,13 +9,13 @@ var path = require("path");
 router.get("/", (req, res) => {
     console.log(req.app.io);
     //send landing page
-    res.sendFile(path.join(__dirname, "../views/login.html"));
+    res.sendFile(path.join(__dirname, "../views/main.html"));
 });
 
 
-router.get("/main", (req, res) => {
+router.get("/members", (req, res) => {
     //send landing page
-    res.sendFile(path.join(__dirname, "../views/main.html"));
+    res.sendFile(path.join(__dirname, "../views/memberOnly.html"));
 });
 
 //sign up form
