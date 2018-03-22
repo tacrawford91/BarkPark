@@ -129,27 +129,47 @@ function addMarker(data) {
                 $.get("/api/user/park/" + id, function(myData) {
                     $("#userInfor").empty()
                     var image = new Image();
-                    console.log(myData[0]['picture'])
-                    image.src = myData[0]["picture"];
-                    $("#userInfor").append(image);
+                    // console.log(myData[0]['picture'])
+                    // image.src = myData[0]["picture"];
+                    // $("#userInfor").append(image);
                     console.log(myData)
                     myData.forEach(element => {
-                        $("#userInfor").append(JSON.stringify(element["dog_name"]).replace(/\"/g, "") + "<br>")
+
+                        var userDiv = $("<div>").addClass("userDiv");                        // $("#userInfor").append(JSON.stringify(element["dog_name"]).replace(/\"/g, "") + "<br>")("userDiv");
+                        var userImg = $("<img>").attr("src",element.picture).addClass("userImg");
+                        var userName= $("<h4>").addClass("userName").text(element.dog_name);
+                        var userBreed = $("<h4>").addClass("userBreed").text(element.breed);
+                        var userOwner = $("<h5>").addClass("userOwner").text(`Owner: ${element.owner_Name}`);
+                        var userThumbsUp = $("<h4>").addClass("userThumbsUp").html(`<i class="fa fa-thumbs-up" aria-hidden="true"></i>: ${element.thumbsUp}`);
+                        var userThumbsDown = $("<h4>").addClass("userThumbsDown").html(`<i class="fa fa-thumbs-down" aria-hidden="true"></i>: ${element.thumbsUp}`);
+                        userDiv.append(userImg,userName,userBreed, userOwner, userThumbsUp,userThumbsDown);
+                        $("#userInfor").append(userDiv);
                     });
                 })
                 var indexPlusOne = Number(i) + 1
                 $.get("/api/park/" + indexPlusOne, function(dataBack) {
-                    var div = $("<div>")
-                    div.append(data[i].park_name + "<br>")
+                    // parkHeaderDiv.append(data[i].park_name + "<br>");
                     var lastUpdatedTime = dataBack["updatedAt"];
-                    lastUpdatedTime = lastUpdatedTime.slice(0, 10) + " " + lastUpdatedTime.slice(11, 19)
+                    lastUpdatedTime = lastUpdatedTime.slice(0, 10) + " " + lastUpdatedTime.slice(11, 19);
                     var timeDiff = Math.floor((Date.now() - new Date(lastUpdatedTime).getTime()) / (1000 * 60 * 60) + 5);
+                    var parkHeaderDiv = $("<div>").addClass("parkHeaderDiv");
+                    var parkNameDiv =  $("<div>").addClass("parkNameDiv");
+                    var parkName = $("<h2>").addClass("parkName").text(data[i].park_name);
+                    parkNameDiv.append(parkName);
+                    var updatedInfo = $("<h3>").addClass("lastUpdated").text()
                     if (timeDiff < 1) {
-                        div.append("Updated less than an hour ago");
-                        $("#updateTime").append(div)
+                        // parkHeaderDiv.append("Updated less than an hour ago");
+                        // $("#updateTime").append(parkHeaderDiv)
+                        var updatedInfo = $("<h3>").addClass("lastUpdated").text("Updated less than an hour ago")
+                        parkHeaderDiv.append(parkNameDiv, updatedInfo)
+                        $("#updateTime").append(parkHeaderDiv);
+                     
                     } else {
-                        div.append("Updated " + timeDiff + " hours ago");
-                        $("#updateTime").append(div)
+                        // parkHeaderDiv.append("Updated " + timeDiff + " hours ago");
+                        // $("#updateTime").append(parkHeaderDiv);
+                        var updatedInfo = $("<h3>").addClass("lastUpdated").text("Updated " + timeDiff + " hours ago")
+                        parkHeaderDiv.append(parkNameDiv, updatedInfo)
+                        $("#updateTime").append(parkHeaderDiv);
                     }
                 })
 

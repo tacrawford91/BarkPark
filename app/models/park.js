@@ -5,7 +5,10 @@ module.exports = function(sequelize, DataTypes) {
       park_name: DataTypes.STRING,
       address_lat: DataTypes.DOUBLE,
       address_long: DataTypes.DOUBLE,
-      dog_count: DataTypes.INTEGER
+      dog_count: {
+        type: DataTypes.INTEGER,
+      defaultValue: 0
+      }
     });
     return Park;
   };

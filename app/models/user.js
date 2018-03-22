@@ -22,7 +22,19 @@ module.exports = function(sequelize, DataTypes) {
         },
         dog_name: DataTypes.STRING,
         picture: DataTypes.TEXT,
-        currentParkID: DataTypes.INTEGER
+        currentParkID: DataTypes.INTEGER,
+        breed: DataTypes.STRING,
+        age: DataTypes.INTEGER,
+        weight: DataTypes.INTEGER,
+        owner_Name: DataTypes.STRING,
+        thumbsUp: {
+            type: DataTypes.INTEGER,
+          defaultValue: 0
+          },
+        thumbsDown: {
+            type: DataTypes.INTEGER,
+          defaultValue: 0
+          }
     });
 
     // Will add a parkId attribute to User to hold the primary key value for Park
