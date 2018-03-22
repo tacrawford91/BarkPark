@@ -457,7 +457,8 @@ ol {
 }
 
 .bg-dark {
-    background-color: rgba(96,96,96,0.8);;
+    background-color: rgba(96, 96, 96, 0.8);
+    ;
 }
 
 
@@ -635,7 +636,6 @@ textarea:focus {
 \*------------------------------------*/
 
 #nav {
-    padding: 10px 0px;
     background: #FFF;
     -webkit-transition: 0.2s padding;
     transition: 0.2s padding;
@@ -653,7 +653,7 @@ textarea:focus {
     left: 0;
     right: 0;
     padding: 0px 0px;
-    background-color: rgba(96,96,96,0.8);
+    background-color: rgba(96, 96, 96, 0.8);
     border-bottom: 1px solid #EEE;
 }
 
