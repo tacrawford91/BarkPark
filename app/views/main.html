@@ -257,7 +257,7 @@
 
         </div>
     </aside> -->
-    
+
     <!-- Service (Log In) -->
     <div id="log-in" class="section md-padding">
 
@@ -305,40 +305,52 @@
         <div class="container">
 
             <!-- Row -->
-            <!-- <div class="row"> -->
-            <div class="row text-center" id="heading">
-                <!-- Section header -->
+            <div class="row">
                 <div class="section-header text-center">
                     <h2 class="title">Sign Up</h2>
                 </div>
-                <!-- Login -->
-                <div class="col-md-6 col-md-offset-3 wow animated zoomInDown" id="heading-text">
-                    <div class="myform">
-                        <form class="form">
-                            <input type="text" placeholder="Email"><br>
-                            <input type="password" placeholder="Password"><br>
-                            <input type="text" placeholder="Dog Name"><br>
-                            <input type="text" placeholder="User Name"><br>
-                            <input type="text" placeholder="Dog Breed"><br>
-                            <input type="text" placeholder="Dog Age"><br>
-                            <input type="text" placeholder="Dog Weight"><br>
-                            <input type="text" placeholder="Dog Picture"><br>
-                            <input type="text" placeholder="Username"><br>
-                            <br>
-                            <button type="submit" class="btn btn-default login-button">Log In</button>
-                        </form>
+                <form class="signup">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="email-input" placeholder="Email">
                     </div>
-                </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="password-input" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="ownersname">Ownersname</label>
+                        <input type="ownersname" class="form-control" id="owners-name" placeholder="Owner's name">
+                    </div>
+                    <div class="form-group">
+                        <label for="dogsname">Dogsname</label>
+                        <input type="dogsname" class="form-control" id="dogsname" placeholder="Dog's name">
+                    </div>
+                    <div class="form-group">
+                        <label for="breed">Breed</label>
+                        <input type="breed" class="form-control" id="breed" placeholder="Breed">
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight</label>
+                        <input type="weight" class="form-control" id="weight" placeholder="Weight">
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="age" class="form-control" id="age" placeholder="Age">
+                    </div>
+
+                    <input type="file" id="dogspic" name="pic" accept="image/*">
+
+                    <input type="button" id="suform-button" value="Submit">
+                </form>
+
+                <!-- Section header -->
+
+                <!-- /Section header -->
             </div>
-            <!-- row -->
-
-            <!-- container -->
-            </section>
-            <!-- Login-->
-
-            <!-- /Section header -->
+            <!-- /Row -->
         </div>
-        <!-- /Row -->
+        <!-- /Container -->
     </div>
     <!-- Service -->
 
@@ -363,7 +375,9 @@
                     <div id="map" style="width: 100%; height: 400px;-webkit-filter: grayscale(100%);filter: grayscale(0%);"></div>
                 </div>
                 <div style="border:solid;overflow-y:scroll;border-color:black;max-height:400px; height:400px" class="col-md-5 col-sm-5">
-                    <div id="updateTime"></div>
+                    <div id="updateTime">
+
+                    </div>
                     <div id="userInfor">
 
                     </div>
@@ -580,7 +594,7 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6NlS01JXVsAkq6HYU0u0ltTwa3wGCQZw&libraries=places&callback=initMap" async defer></script>
 
     <script src="assets/js/map.js"></script>
-
+    <script src="assets/js/userSignUp.js"></script>
 </body>
 
 </html>
