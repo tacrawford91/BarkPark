@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>HTML Template</title>
+    <title>BarkPark</title>
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
@@ -75,7 +75,7 @@
                 <ul class="main-nav nav navbar-nav navbar-right">
                     <li><a href="#log-in">Log In</a></li>
                     <li><a href="#sign-up">Sign Up</a></li>
-                    <li><a href="#parkMap">Park Map</a></li>
+                    <li><a href="#parkMap">BarkPark Map</a></li>
                     <li><a href="#team">Team</a></li>
                     <!-- <li><a id="addClass" href="#">Message<span style="background:gold"class="badge">1</span></a></li> -->
                 </ul>
@@ -281,7 +281,7 @@
                             <input type="text" placeholder="Email"><br>
                             <input type="password" placeholder="Password"><br>
                             <br>
-                            <button type="submit" class="btn btn-default login-button">Login</button>
+                            <button type="submit" class="btn btn-default login-button" style="background-color:#2eb82e;color:white;">Login</button>
 
                             <hr>
                             <p class="message signIn">Not registered? <a href="#sign-up">Create an account</a></p>
@@ -314,20 +314,21 @@
                 </div>
                 <form class="signup">
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Email address</label>
+                        <label for="exampleInputEmail1">Email Address</label>
                         <input type="email" class="form-control" id="email-input" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" class="form-control" id="password-input" placeholder="Password">
                     </div>
+
                     <div class="form-group">
-                        <label for="ownersname">Ownersname</label>
-                        <input type="ownersname" class="form-control" id="owners-name" placeholder="Owner's name">
+                        <label for="ownersname">Owner Name</label>
+                        <input type="ownersname" class="form-control" id="owners-name" placeholder="Owner Name">
                     </div>
                     <div class="form-group">
-                        <label for="dogsname">Dogsname</label>
-                        <input type="dogsname" class="form-control" id="dogsname" placeholder="Dog's name">
+                        <label for="dogsname">Dog Name</label>
+                        <input type="dogsname" class="form-control" id="dogsname" placeholder="Dog Name">
                     </div>
                     <div class="form-group">
                         <label for="breed">Breed</label>
@@ -341,10 +342,12 @@
                         <label for="age">Age</label>
                         <input type="age" class="form-control" id="age" placeholder="Age">
                     </div>
+                    <div class="form-group">
+                        <label for="file">Click the button to upload a picture!</label>
+                        <input type="file" id="dogspic" name="pic" accept="image/*">
+                    </div>
 
-                    <input type="file" id="dogspic" name="pic" accept="image/*">
-
-                    <input type="button" id="suform-button" value="Submit">
+                    <input type="submit" id="suform-button" value="Submit" class="btn btn-default login-button" style="background-color:#2eb82e;color:white;margin-top:10px;">
                 </form>
 
                 <!-- Section header -->
