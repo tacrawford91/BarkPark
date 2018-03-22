@@ -125,22 +125,12 @@ function addMarker(data) {
                 $("#updateTime").empty()
                 marker.setAnimation(google.maps.Animation.BOUNCE)
                 setTimeout(function() { marker.setAnimation(null); }, 2000);
-                $.get("/api/parkall", function(result) {
-                    // $(".firstModalBody").empty();
-                    $(".firstModalTitle").text(data[i].park_name)
-                    $(".secondFooter").empty()
-                    $(".secondFooter").append(`<p class="text-center"><button data-id=${i} type="button" id="submitData" class="btn btn-default" data-dismiss="modal">Submit</button></p>
-                        `)
-                        // result.forEach(element => {
-
-                    //     var p = $(`<p id="${element["id"]}">`)
-                    //     p.append(element["id"] + ". " + element['park_name'])
-
-                    //     $(".firstModalBody").append(p)
-                    // });
-                    $(".firstFooter").empty()
-                    $(".firstFooter").append(`<button data-id=${i} id="checkin" type="button" class=" btn btn-default">Check In</button>`).append(` <button type="button" data-id=${i} id="seeUsers" class="btn btn-default" data-dismiss="modal">See who is here!</button>`)
-                    $('#myModal').modal('show');
+                var id = Number(i) + 1
+                $.get("/api/user/park/" + id, function(myData) {
+                    $("#userInfor").empty()
+                    myData.forEach(element => {
+                        $("#userInfor").append(JSON.stringify(element["dog_name"]).replace(/\"/g, "") + "<br>")
+                    });
                 })
                 var indexPlusOne = Number(i) + 1
                 $.get("/api/park/" + indexPlusOne, function(dataBack) {
@@ -157,55 +147,44 @@ function addMarker(data) {
                         $("#updateTime").append(div)
                     }
                 })
+
             }
         })(marker, i));
-        $(document).on("click", "#seeUsers", function() {
-            var btnID = $(this).attr("data-id")
-            var c = Number(btnID) + 1
-            console.log(c)
-            $.get("/api/user/park/" + c, function(myData) {
-                $("#userInfor").empty()
-                myData.forEach(element => {
-                    $("#userInfor").append(JSON.stringify(element["dog_name"]).replace(/\"/g, "") + "<br>")
-                });
-            })
-        })
-        $(document).on("click", "#submitData", function() {
-            var newID = $(this).attr("data-id");
-            var rightID = Number(newID) + 1
-            var dogCountUpdate = {
-                parkID: data[newID].id,
-                dog_count: Number($("#dogNumber").val().trim()),
-                marker: newID
-            };
+        // $(document).on("click", "#submitData", function() {
+        //     var newID = $(this).attr("data-id");
+        //     var rightID = Number(newID) + 1
+        //     var dogCountUpdate = {
+        //         parkID: data[newID].id,
+        //         dog_count: Number($("#dogNumber").val().trim()),
+        //         marker: newID
+        //     };
 
-            $.get("/api/user/park/" + rightID, function(myData) {
-                $("#userInfor").empty()
-                myData.forEach(element => {
-                    $("#userInfor").append(JSON.stringify(element["dog_name"]).replace(/\"/g, "") + "<br>")
-                });
-                $("#myModal").modal("hide")
-                $("#dogNumber").val("");
-            })
+        //     $.get("/api/user/park/" + rightID, function(myData) {
+        //         $("#userInfor").empty()
+        //         myData.forEach(element => {
+        //             $("#userInfor").append(JSON.stringify(element["dog_name"]).replace(/\"/g, "") + "<br>")
+        //         });
+        //         $("#myModal").modal("hide")
+        //         $("#dogNumber").val("");
+        //     })
 
-            console.log(dogCountUpdate)
+        //     console.log(dogCountUpdate)
 
 
-            $.ajax({
-                url: `/api/park/newDog/${dogCountUpdate.parkID}`,
-                method: "PUT",
-                data: dogCountUpdate
-            }).then((data) => {
-                console.log(`updated park id${dogCountUpdate.parkID} with ${dogCountUpdate.dog_count}`);
-                socket.emit("dogCountUpdate", { dogCountUpdate });
+        //     $.ajax({
+        //         url: `/api/park/newDog/${dogCountUpdate.parkID}`,
+        //         method: "PUT",
+        //         data: dogCountUpdate
+        //     }).then((data) => {
+        //         console.log(`updated park id${dogCountUpdate.parkID} with ${dogCountUpdate.dog_count}`);
+        //         socket.emit("dogCountUpdate", { dogCountUpdate });
 
-            })
-
-
-            // setNumber(marker)
+        //     })
 
 
-        });
+
+
+        // });
         google.maps.event.addListener(marker, 'mouseover', (function(marker, i) {
             return function() {
                 infowindow.setContent(data[i].park_name);
@@ -231,6 +210,8 @@ function addMarker(data) {
                 }
 
 
+
+                // data.marker.setLabel(newLabel)
                 mymark.setLabel(newLabel)
                     // $("#dogNumber").val("")
 
@@ -391,13 +372,13 @@ $("#removeClass").click(function() {
 });
 $(".chat_sidebar").draggable()
 
-$(document).on("click", "#checkin", function() {
-    $("#checkinForm").empty()
-    var input = $(`<input type="checkbox" name="list" value="house">house<br>`)
-    $("#checkinForm").append(input)
-    $("#checkinModal").modal("show")
+// $(document).on("click", "#checkin", function() {
+//     $("#checkinForm").empty()
+//     var input = $(`<input type="checkbox" name="list" value="house">house<br>`)
+//     $("#checkinForm").append(input)
+//     $("#checkinModal").modal("show")
 
-})
+// })
 
 
 
