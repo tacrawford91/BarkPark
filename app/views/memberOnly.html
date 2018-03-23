@@ -10,6 +10,7 @@
     <title>BarkPark - Member Page</title>
 
     <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Mina" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
@@ -34,6 +35,7 @@
 
     <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,8 +43,34 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+        .wow {
+            font-family: 'Mina', sans-serif;
+            color: gold;
+            font-size: 30px;
+        }
+        
+        .title {
+            font-family: 'Love Ya Like A Sister', cursive;
+            color: brown;
+            text-decoration: none;
+            text-transform: uppercase;
+            -webkit-mask-image: linear-gradient(15deg, rgba(0, 0, 0, 0.6) 60%, #000 80%, rgba(0, 0, 0, .6) 90%);
+            -webkit-mask-size: 200%;
+            animation: shine 2s linear infinite;
+        }
+        
+        hr {
+            width: 80%;
+            background: green;
+            height: 3px;
+        }
+    </style>
+
         <!-- styling for users at park divs -->
         <link rel="stylesheet" href="assets/css/userAtPark.css">
+
 </head>
 
 <body>
@@ -115,49 +143,6 @@
 
 
 
-
-    <div id="mymodal">
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-lg">
-
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title firstModalTitle"></h4>
-                    </div>
-                    <div class="text-center modal-body firstModalBody">
-                        <p>Do you want to check in</p>
-                    </div>
-                    <div class="firstFooter text-center modal-footer">
-                        <button id="checkin" type="button" class=" btn btn-default">Check In</button>
-                        <button type="button" id="seeUsers" class="btn btn-default" data-dismiss="modal">See who is here!</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-
-    <!-- Modal -->
-    <div id="checkinModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title secondModalTitle">Modal Header</h4>
-                </div>
-                <div class="modal-body secondModalBody">
-                    The number of dogs in this park<input type="text" id="dogNumber">
-                </div>
-                <div class="secondFooter modal-footer">
-                </div>
-            </div>
-
-        </div>
-    </div>
 
 
     <!-- chat box -->
@@ -271,33 +256,42 @@
     </aside> -->
 
     <!-- Service (Profile) -->
-        <div id="profile" class="section md-padding">
-            <div class="container">
-                <!-- Section header -->
-                <div class="section-header text-center">
-                    <h2 class="title">Profile</h2>
-                </div>
-                <!-- /Section header -->
-                <!-- row -->
-                <div class="row about-us-text">
-                    <div class="col-md-12 col-sm-12 text-center">
-                        <div class="row wow animated zoomIn">
-                            <div class="col-md-8 col-md-offset-2">
-                                <img class="img-circle img-responsive center-block" style="width:300px;height:300px;" src="assets/image/dog2.png" alt="Default-Dog-Pic">
-                            </div>
+    <div id="profile" style="padding-bottom:0px" class="section md-padding">
+        <div class="container">
+            <!-- Section header -->
+            <div class="section-header text-center">
+                <h2 class="title">Profile</h2>
+            </div>
+            <!-- /Section header -->
+            <!-- row -->
+            <div class="row about-us-text">
+                <div class="col-md-12 col-sm-12 text-center">
+                    <div class="row wow animated zoomIn">
+                        <div class="col-md-8 col-md-offset-2">
+                            <img id="dog1" class="img-circle img-responsive center-block" style="width:300px;height:300px;" src="assets/image/dog2.png" alt="Default-Dog-Pic">
+                            <img id="dog2" class="img-circle img-responsive center-block" style="width:300px;height:300px;" src="assets/image/dog3.jpg" alt="Default-Dog-Pic">
                         </div>
-                        <p class="member-title wow animated fadeIn">Dog Name: ---------- <br></p>
-                        <p class="team-member-description wow animated fadeIn"> Owner Name: ----------</p>
-                        <p class="team-member-description wow animated fadeIn">Breed: ----------</p>
-                        <p class="team-member-description wow animated fadeIn">Age: ----------</p>
-                        <p class="team-member-description wow animated fadeIn">Weight: ---------- </p>
                     </div>
-                    <!-- col-md-4 -->
+                    <p id="dogName" class="member-title wow animated fadeIn"><br></p>
+                    <p id="ownerName" class="team-member-description wow animated fadeIn"></p>
+                    <p id="myBreed" class="team-member-description wow animated fadeIn"></p>
+                    <p id="myAge" class="team-member-description wow animated fadeIn"></p>
+                    <p id="myWeight" class="team-member-description wow animated fadeIn"></p>
                 </div>
-                <!-- row -->
+                <!-- col-md-4 -->
+            </div>
+            <!-- row -->
+        </div>
+    </div>
+    <!-- Service -->
+    <div class="container">
+        <div class="row">
+            <div class="col-ms-12">
+                <img class="img-responsive center-block" style="width:500px;height:130px;margin-bottom:-19px;" src="assets/image/groupdog.jpg" alt="Default-Dog-Pic">
             </div>
         </div>
-    <!-- Service -->
+    </div>
+    <hr>
 
     <!-- Service (Park Map) -->
     <div id="parkMap" class="section md-padding">
@@ -521,7 +515,32 @@
         </div>
     </div>
     <!-- /Preloader -->
+    <script>
+        $(document).ready(function() {
+            window.onload = function() {
+                $.get("/memberInfor", function(data) {
+                    $("#dogName").text("Dog Name: " + data.dog_name);
+                    $("#ownerName").text("Owner Name: " + data.owner_Name)
+                    $("#myBreed").text("Breed: " + data.breed);
+                    $("#myAge").text("Age: " + data.age);
+                    $("#myWeight").text("Weight: " + data.weight)
+                })
+            }
+            $("#dog2").hide()
+            $("#dog1").mouseenter(function() {
+                $("#dog1").fadeOut(500, function() {
+                    $("#dog2").fadeIn(500);
+                })
+            })
+            $("#dog2").mouseout(function() {
+                $("#dog2").fadeOut(500, function() {
+                    $("#dog1").fadeIn(500);
+                })
+            })
 
+
+        })
+    </script>
     <!-- jQuery Plugins -->
 
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
@@ -531,7 +550,6 @@
     <script type="text/javascript" src="assets/js/main.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6NlS01JXVsAkq6HYU0u0ltTwa3wGCQZw&libraries=places&callback=initMap" async defer></script>

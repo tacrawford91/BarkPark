@@ -20,7 +20,14 @@ router.get("/members", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../views/memberOnly.html"));
 });
 
-//sign up form
+router.get("/memberInfor", function(req, res) {
+        if (!req.user) {
+
+        } else {
+            res.json(req.user)
+        }
+    })
+    //sign up form
 router.get("/newDog", (req, res) => {
     res.sendFile(path.join(__dirname, "../views/form.html"));
 })
