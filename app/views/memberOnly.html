@@ -68,8 +68,8 @@
         }
     </style>
 
-        <!-- styling for users at park divs -->
-        <link rel="stylesheet" href="assets/css/userAtPark.css">
+    <!-- styling for users at park divs -->
+    <link rel="stylesheet" href="assets/css/userAtPark.css">
 
 </head>
 
@@ -140,7 +140,47 @@
 
     </header>
     <!-- /Header -->
+    <div id="mymodal">
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg">
 
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title firstModalTitle"></h4>
+                    </div>
+                    <div class="text-center modal-body firstModalBody">
+                        <p>Do you want to check in</p>
+                    </div>
+                    <div class="firstFooter text-center modal-footer">
+                        <button id="checkin" type="button" class=" btn btn-default">Check In</button>
+                        <button type="button" id="seeUsers" class="btn btn-default" data-dismiss="modal">See who is here!</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- Modal -->
+    <div id="checkinModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title secondModalTitle">Modal Header</h4>
+                </div>
+                <div class="modal-body secondModalBody">
+                    The number of dogs in this park<input type="text" id="dogNumber">
+                </div>
+                <div class="secondFooter modal-footer">
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
 
@@ -267,16 +307,15 @@
             <div class="row about-us-text">
                 <div class="col-md-12 col-sm-12 text-center">
                     <div class="row wow animated zoomIn">
-                        <div class="col-md-8 col-md-offset-2">
-                            <img id="dog1" class="img-circle img-responsive center-block" style="width:300px;height:300px;" src="assets/image/dog2.png" alt="Default-Dog-Pic">
-                            <img id="dog2" class="img-circle img-responsive center-block" style="width:300px;height:300px;" src="assets/image/dog3.jpg" alt="Default-Dog-Pic">
+                        <div id="userIMG" class="col-md-8 col-md-offset-2">
+                            <img id="dog1" class="img-circle img-responsive center-block" style="width:200px;height:auto;" src="" alt="Default-Dog-Pic">
                         </div>
                     </div>
-                    <p id="dogName" class="member-title wow animated fadeIn"><br></p>
-                    <p id="ownerName" class="team-member-description wow animated fadeIn"></p>
-                    <p id="myBreed" class="team-member-description wow animated fadeIn"></p>
-                    <p id="myAge" class="team-member-description wow animated fadeIn"></p>
-                    <p id="myWeight" class="team-member-description wow animated fadeIn"></p>
+                    <p class="member-title wow animated fadeIn">Dog Name: <u id="dogName"><br></u></p>
+                    <p class="team-member-description wow animated fadeIn">Owner Name: <u id="ownerName"></u></p>
+                    <p class="team-member-description wow animated fadeIn">Breed: <u id="myBreed"></u></p>
+                    <p class="team-member-description wow animated fadeIn">Age: <u id="myAge"></u></p>
+                    <p class="team-member-description wow animated fadeIn">Weight: <u id="myWeight"></u></p>
                 </div>
                 <!-- col-md-4 -->
             </div>
@@ -518,25 +557,29 @@
     <script>
         $(document).ready(function() {
             window.onload = function() {
-                $.get("/memberInfor", function(data) {
-                    $("#dogName").text("Dog Name: " + data.dog_name);
-                    $("#ownerName").text("Owner Name: " + data.owner_Name)
-                    $("#myBreed").text("Breed: " + data.breed);
-                    $("#myAge").text("Age: " + data.age);
-                    $("#myWeight").text("Weight: " + data.weight)
-                })
-            }
-            $("#dog2").hide()
-            $("#dog1").mouseenter(function() {
-                $("#dog1").fadeOut(500, function() {
-                    $("#dog2").fadeIn(500);
-                })
-            })
-            $("#dog2").mouseout(function() {
-                $("#dog2").fadeOut(500, function() {
-                    $("#dog1").fadeIn(500);
-                })
-            })
+                    $.get("/memberInfor", function(data) {
+                        $("#dogName").text(data.dog_name);
+                        $("#ownerName").text(data.owner_Name)
+                        $("#myBreed").text(data.breed);
+                        $("#myAge").text(data.age);
+                        $("#myWeight").text(data.weight)
+
+                        $("#dog1").attr("src", data.picture);
+                    })
+
+
+                }
+                // $("#dog2").hide()
+                // $("#dog1").mouseenter(function() {
+                //     $("#dog1").fadeOut(500, function() {
+                //         $("#dog2").fadeIn(500);
+                //     })
+                // })
+                // $("#dog2").mouseout(function() {
+                //     $("#dog2").fadeOut(500, function() {
+                //         $("#dog1").fadeIn(500);
+                //     })
+                // })
 
 
         })
