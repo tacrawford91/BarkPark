@@ -1,7 +1,7 @@
 {
     "development": {
         "username": "root",
-        "password": "Tucker10!",
+        "password": "119110",
         "database": "BarkPark_db",
         "host": "127.0.0.1",
         "dialect": "mysql"
@@ -14,10 +14,10 @@
         "dialect": "mysql"
     },
     "production": {
-        "username": "root",
-        "password": null,
-        "database": "database_production",
-        "host": "127.0.0.1",
+        "username": "tmiyx93sjhnq0ibs",
+        "password": "kn7povv79rgs9edl",
+        "database": "ew0mqkr8py6blr9f",
+        "host": "ixqxr3ajmyapuwmi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
         "dialect": "mysql"
     }
 }
