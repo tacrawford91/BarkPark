@@ -141,7 +141,7 @@ function addMarker(data) {
                         var userBreed = $("<h4>").addClass("userBreed").text(element.breed);
                         var userOwner = $("<h5>").addClass("userOwner").text(`Owner: ${element.owner_Name}`);
                         var userThumbsUp = $("<h4>").addClass("userThumbsUp").html(`<i class="fa fa-thumbs-up" aria-hidden="true"></i>: ${element.thumbsUp}`);
-                        var userThumbsDown = $("<h4>").addClass("userThumbsDown").html(`<i class="fa fa-thumbs-down" aria-hidden="true"></i>: ${element.thumbsUp}`);
+                        var userThumbsDown = $("<h4>").addClass("userThumbsDown").html(`<i class="fa fa-thumbs-down" aria-hidden="true"></i>: ${element.thumbsDown}`);
                         userDiv.append(userImg,userName,userBreed, userOwner, userThumbsUp,userThumbsDown);
                         $("#userInfor").append(userDiv);
                     });

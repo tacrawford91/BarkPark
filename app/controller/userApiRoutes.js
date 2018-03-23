@@ -42,6 +42,30 @@ db.User.update(updatedUser, {where:{id: req.params.userID }}).then((data) => {
 });
 });
 
+
+//get Number of Likes/dislikes
+router.get("/user/thumbs/:userID", (req, res) => {
+    db.User.findOne({
+        attributes: ['thumbsUp', 'thumbsDown']
+      },{ where: { id: req.params.id } }).then((data) => {
+        res.json(data)
+    });
+});
+
+
+//Update Number of Likes/dislikes
+router.put("/user/thumbs/:userID", (req, res) => {
+    var updatedUser = {
+        thumbsUp: req.body.thumbsUp,
+        thumbsDown: req.body.thumbsDown 
+    }
+    db.User.update(updatedUser, {where:{id: req.params.userID }}).then((data) => {
+        res.json(data)
+    });
+});
+
+
+
 //Delete user
 router.delete("/user/:id", (req,res)=> {
     db.User.destroy({where: {id: req.params.id}}).then((data) => {
