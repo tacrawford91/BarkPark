@@ -176,8 +176,8 @@ function addMarker(data) {
             }
         })(marker, i));
         $(document).on("click", "#seeUsers", function() {
-            var btnID = $(this).attr("data-id")
-            var c = Number(btnID) + 1
+            // var btnID = $(this).attr("data-id")
+            // var c = Number(btnID) + 1
             console.log(c)
             $.get("/api/user/park/" + c, function(myData) {
                 $("#userInfor").empty()
