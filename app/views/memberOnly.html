@@ -5,44 +5,21 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>BarkPark - Member Page</title>
 
-    <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Mina" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CVarela+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
-    <!-- Bootstrap -->
-
-
     <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css" />
-
-
-    <!-- Owl Carousel -->
     <link type="text/css" rel="stylesheet" href="assets/css/owl.carousel.css" />
     <link type="text/css" rel="stylesheet" href="assets/css/owl.theme.default.css" />
-
-    <!-- Magnific Popup -->
     <link type="text/css" rel="stylesheet" href="assets/css/magnific-popup.css" />
-
-    <!-- Font Awesome Icon -->
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/font-awesome.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
-
-    <!-- Custom stlylesheet -->
     <link type="text/css" rel="stylesheet" href="assets/css/style.css" />
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
     <style>
         .wow {
@@ -68,242 +45,55 @@
         }
     </style>
 
-    <!-- styling for users at park divs -->
     <link rel="stylesheet" href="assets/css/userAtPark.css">
 
 </head>
 
 <body>
-    <!-- Header -->
     <header id="home" style="height:1px;">
-        <!-- Background Image -->
-
         <div class="bg-img" style="background-image: url('assets/image/barkPark1.jpg');">
 
             <div class="overlay"></div>
         </div>
-        <!-- /Background Image -->
-        <!-- Nav -->
         <nav id="nav" class="navbar nav-transparent" style="background-color: rgba(96,96,96,0.8);">
             <div class="container">
                 <div class="navbar-header">
-                    <!-- Logo -->
                     <div class="navbar-brand">
                         <a href="#home">
                             <br>
                             <p style="color:#2eb82e;font-size: 30px;font-size: 30px; text-shadow: 0px 1px white;">BarkPark</p>
                         </a>
                     </div>
-                    <!-- /Logo -->
-
-                    <!-- Collapse nav button -->
                     <div class="nav-collapse">
                         <span></span>
                     </div>
-                    <!-- /Collapse nav button -->
                 </div>
-
-                <!--  Main navigation  -->
                 <ul class="main-nav nav navbar-nav navbar-right">
                     <li><a href="#profile" style="color:white;">Profile</a></li>
                     <li><a href="#parkMap" style="color:white;">BarkPark Map</a></li>
                     <li><a href="#team" style="color:white;">Team</a></li>
-                    <!-- <li><a id="addClass" href="#">Message<span style="background:gold"class="badge">1</span></a></li> -->
                 </ul>
-                <!-- /Main navigation -->
-
             </div>
         </nav>
-        <!-- /Nav -->
 
-        <!-- home wrapper -->
         <div class="home-wrapper">
             <div class="container">
                 <div class="row">
-
-                    <!-- home content -->
                     <div class="col-md-10 col-md-offset-1">
                         <div class="home-content">
-                            <!-- <h1 class="white-text">We Are Creative Agency</h1>
-                            <p class="white-text">Morbi mattis felis at nunc. Duis viverra diam non justo. In nisl. Nullam sit amet magna in magna gravida vehicula. Mauris tincidunt sem sed arcu. Nunc posuere.
-                            </p> -->
-                            <!-- <button class="white-btn"></button>
-                            <button class="main-btn"></button> -->
                         </div>
                     </div>
-                    <!-- /home content -->
-
                 </div>
             </div>
         </div>
-        <!-- /home wrapper -->
-
     </header>
-    <!-- /Header -->
-    <div id="mymodal">
-        <div id="myModal" class="modal fade" role="dialog">
-            <div class="modal-dialog modal-lg">
 
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title firstModalTitle"></h4>
-                    </div>
-                    <div class="text-center modal-body firstModalBody">
-                        <p>Do you want to check in</p>
-                    </div>
-                    <div class="firstFooter text-center modal-footer">
-                        <button id="checkin" type="button" class=" btn btn-default">Check In</button>
-                        <button type="button" id="seeUsers" class="btn btn-default" data-dismiss="modal">See who is here!</button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-    <!-- Modal -->
-    <div id="checkinModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title secondModalTitle">Modal Header</h4>
-                </div>
-                <div class="modal-body secondModalBody">
-                    The number of dogs in this park<input type="text" id="dogNumber">
-                </div>
-                <div class="secondFooter modal-footer">
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-
-
-
-    <!-- chat box -->
-    <!-- <aside id="sidebar_secondary" class="tabbed_sidebar ng-scope chat_sidebar">
-
-        <div class="popup-head">
-            <div class="popup-head-left pull-left">
-            </div>
-            <div class="popup-head-right pull-right">
-                <button class="chat-header-button" type="button"><i class="glyphicon glyphicon-facetime-video"></i></button>
-                <button class="chat-header-button" type="button"><i class="glyphicon glyphicon-earphone"></i></button>
-                <div class="btn-group gurdeepoushan">
-                    <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
-                                                       <i class="glyphicon glyphicon-paperclip"></i> </button>
-                    <ul role="menu" class="dropdown-menu pull-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span> Gallery</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-camera" aria-hidden="true"></span> Photo</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Video</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> Audio</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span> Location</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Contact</a></li>
-                    </ul>
-                </div>
-
-                <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i class="glyphicon glyphicon-remove"></i></button>
-            </div>
-        </div>
-
-        <div id="chat" class="chat_box_wrapper chat_box_small chat_box_active" style="opacity: 1; display: block; transform: translateX(0px);">
-            <div class="chat_box touchscroll chat_box_colors_a">
-                <div class="chat_message_wrapper">
-                    <div class="chat_user_avatar">
-
-                    </div>
-                    <ul class="chat_message">
-                        <li>
-                            <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eum? </p>
-                        </li>
-                        <li>
-                            <p> Lorem ipsum dolor sit amet.<span class="chat_message_time">13:38</span> </p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="chat_message_wrapper chat_message_right">
-                    <div class="chat_user_avatar">
-
-                    </div>
-                    <ul class="chat_message">
-                        <li>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem delectus distinctio dolor earum est hic id impedit ipsum minima mollitia natus nulla perspiciatis quae quasi, quis recusandae, saepe, sunt totam.
-                                <span class="chat_message_time">13:34</span>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="chat_message_wrapper">
-                    <div class="chat_user_avatar">
-
-
-                        </a>
-                    </div>
-                    <ul class="chat_message">
-                        <li>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque ea mollitia pariatur porro quae sed sequi sint tenetur ut veritatis.https://www.facebook.com/iamgurdeeposahan
-                                <span class="chat_message_time">23 Jun 1:10am</span>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-                <div class="chat_message_wrapper chat_message_right">
-                    <div class="chat_user_avatar">
-
-
-                    </div>
-                    <ul class="chat_message">
-                        <li>
-                            <p> Lorem ipsum dolor sit amet, consectetur. </p>
-                        </li>
-                        <li>
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                <span class="chat_message_time">Friday 13:34</span>
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="chat_submit_box">
-            <div class="uk-input-group">
-                <div class="gurdeep-chat-box">
-                    <span style="vertical-align: sub;" class="uk-input-group-addon">
-                        <a href="#"><i class="fa fa-smile-o"></i></a>
-                        </span>
-
-                    <input type="text" placeholder="Type a message" id="submit_message" style="width:75%" name="submit_message" class="md-input">
-                    <span style="vertical-align: sub;" class="uk-input-group-addon">
-                            <a href="#"><i class="fa fa-camera"></i></a>
-                        </span>
-                </div>
-
-                <span class="uk-input-group-addon">
-                    <a href="#"><i class="glyphicon glyphicon-send"></i></a>
-                    </span>
-            </div>
-        </div>
-
-        </div>
-    </aside> -->
-
-    <!-- Service (Profile) -->
+    <!-- Profile Section -->
     <div id="profile" style="padding-bottom:0px" class="section md-padding">
         <div class="container">
-            <!-- Section header -->
             <div class="section-header text-center">
                 <h2 class="title">Profile</h2>
             </div>
-            <!-- /Section header -->
-            <!-- row -->
             <div class="row about-us-text">
                 <div class="col-md-12 col-sm-12 text-center">
                     <div class="row wow animated zoomIn">
@@ -317,12 +107,9 @@
                     <p class="team-member-description wow animated fadeIn">Age: <u id="myAge"></u></p>
                     <p class="team-member-description wow animated fadeIn">Weight: <u id="myWeight"></u></p>
                 </div>
-                <!-- col-md-4 -->
             </div>
-            <!-- row -->
         </div>
     </div>
-    <!-- Service -->
     <div class="container">
         <div class="row">
             <div class="col-ms-12">
@@ -332,23 +119,13 @@
     </div>
     <hr>
 
-    <!-- Service (Park Map) -->
+    <!-- Park Map -->
     <div id="parkMap" class="section md-padding">
-
-        <!-- Container -->
         <div class="container">
-
-            <!-- Row -->
             <div class="row">
-
-                <!-- Section header -->
                 <div class="section-header text-center">
                     <h2 class="title">BarkPark Map</h2>
                 </div>
-                <!-- /Section header -->
-
-                <!-- service -->
-                <!-- service -->
                 <div class="col-md-7 col-sm-7">
                     <div id="map" style="width: 100%; height: 400px;-webkit-filter: grayscale(100%);filter: grayscale(0%);"></div>
                 </div>
@@ -358,38 +135,23 @@
 
                     </div>
                 </div>
-                <!-- /service -->
             </div>
-            <!-- /Row -->
         </div>
-        <!-- /Container -->
     </div>
-    <!-- /Service -->
 
     <!-- Team -->
     <div id="team" class="section md-padding">
-
-        <!-- Container -->
         <div class="container">
-
-            <!-- Row -->
             <div class="row">
-
-                <!-- Section header -->
                 <div class="section-header text-center">
                     <h2 class="title">Our Team</h2>
                 </div>
-                <!-- /Section header -->
-
-                <!-- team -->
                 <div class=col-sm-12>
                     <div class="row">
                         <div class="col-sm-4">
                             <div class="team">
                                 <div class="team-img">
-
                                     <img class="img-responsive" src="assets/image/barkPark3.jpg" alt="">
-
                                     <div class="overlay">
                                         <div class="team-social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -404,13 +166,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /team -->
                         <div class="col-sm-4">
                             <div class="team">
                                 <div class="team-img">
-
                                     <img class="img-responsive" src="assets/image/barkPark2.jpg" alt="">
-
                                     <div class="overlay">
                                         <div class="team-social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -425,13 +184,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- team -->
                         <div class="col-sm-4">
                             <div class="team">
                                 <div class="team-img">
-
                                     <img class="img-responsive" src="assets/image/barkPark2.jpg" alt="">
-
                                     <div class="overlay">
                                         <div class="team-social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -446,17 +202,13 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /team -->
                     </div>
                     <div class="row">
-                        <!-- team -->
                         <div class="col-sm-2"></div>
                         <div class="col-sm-4">
                             <div class="team">
                                 <div class="team-img">
-
                                     <img class="img-responsive" src="assets/image/barkPark2.jpg" alt="">
-
                                     <div class="overlay">
                                         <div class="team-social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -471,13 +223,10 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- /team -->
                         <div class="col-sm-4">
                             <div class="team">
                                 <div class="team-img">
-
                                     <img class="img-responsive" src="assets/image/barkPark2.jpg" alt="">
-
                                     <div class="overlay">
                                         <div class="team-social">
                                             <a href="#"><i class="fa fa-facebook"></i></a>
@@ -497,48 +246,25 @@
                 </div>
             </div>
             <div class="col-sm-1"></div>
-            <!-- /Row -->
-
         </div>
-        <!-- /Container -->
-
     </div>
-    <!-- /Team -->
 
     <!-- Footer -->
     <footer id="footer" class="sm-padding bg-dark">
-
-        <!-- Container -->
         <div class="container">
-
-            <!-- Row -->
             <div class="row">
 
                 <div class="col-md-12">
-
-                    <!-- footer logo -->
                     <div class="footer-logo">
-                        <!-- <a href="index.html"><img src="img/logo-alt.png" alt="logo"></a> -->
                     </div>
-                    <!-- /footer logo -->
-
-                    <!-- footer copyright -->
                     <div class="footer-copyright" style="color:white;">
                         <p>Copyright © 2018 Mallards Project 2</a>
                         </p>
                     </div>
-                    <!-- /footer copyright -->
-
                 </div>
-
             </div>
-            <!-- /Row -->
-
         </div>
-        <!-- /Container -->
-
     </footer>
-    <!-- /Footer -->
 
     <!-- Back to top -->
     <div id="back-to-top"></div>
@@ -554,6 +280,7 @@
         </div>
     </div>
     <!-- /Preloader -->
+
     <script>
         $(document).ready(function() {
             window.onload = function() {
@@ -569,19 +296,6 @@
 
 
                 }
-                // $("#dog2").hide()
-                // $("#dog1").mouseenter(function() {
-                //     $("#dog1").fadeOut(500, function() {
-                //         $("#dog2").fadeIn(500);
-                //     })
-                // })
-                // $("#dog2").mouseout(function() {
-                //     $("#dog2").fadeOut(500, function() {
-                //         $("#dog1").fadeIn(500);
-                //     })
-                // })
-
-
         })
     </script>
     <!-- jQuery Plugins -->
@@ -591,12 +305,10 @@
     <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.magnific-popup.js"></script>
     <script type="text/javascript" src="assets/js/main.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD6NlS01JXVsAkq6HYU0u0ltTwa3wGCQZw&libraries=places&callback=initMap" async defer></script>
-
     <script src="assets/js/Membermap.js"></script>
 
 </body>
