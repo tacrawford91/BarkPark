@@ -50,8 +50,10 @@ router.put("/user/park/:userID", (req, res) => {
 //get Number of Likes/dislikes
 router.get("/user/thumbs/:userID", (req, res) => {
     db.User.findOne({
-        attributes: ['thumbsUp', 'thumbsDown']
-      },{ where: { id: req.params.id } }).then((data) => {
+        where: { id: req.params.userID },
+        attributes: ['thumbsUp', 'thumbsDown'],
+    }).then((data) => {
+        console.log(data)
         res.json(data)
     });
 });
