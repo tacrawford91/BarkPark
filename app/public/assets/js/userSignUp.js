@@ -1,21 +1,32 @@
 $(document).ready(function() {
     function getBase64(file, cb) {
-
-        var reader = new FileReader();
-
-        reader.readAsDataURL(file);
-
-        reader.onload = function() {
-
-            cb(reader.result);
-
+        var signUpForm = $(".signup");
+        var emailInput = $("#email-input");
+        var passwordInput = $("#password-input");
+        var userData = {
+            email: emailInput.val().trim(),
+            password: passwordInput.val().trim()
         };
 
-        reader.onerror = function(error) {
+        if (!userData.email || !userData.password) {
+            alert("Please fill the form")
+        } else {
+            var reader = new FileReader();
 
-            console.log('Error: ', error);
+            reader.readAsDataURL(file);
 
-        };
+            reader.onload = function() {
+
+                cb(reader.result);
+
+            };
+
+            reader.onerror = function(error) {
+
+                console.log('Error: ', error);
+
+            };
+        }
 
     }
 
@@ -45,6 +56,7 @@ $(document).ready(function() {
 
         };
 
+
         // Send the POST request.
 
         $.ajax("api/user", {
@@ -57,25 +69,33 @@ $(document).ready(function() {
 
             function(data) {
 
-                console.log("created new user");
+                window.location.replace(data);
+                // If there's an error, handle it by throwing up a boostrap alert
+            }).catch(handleLoginErr);
 
-                // socket.emit("addedForm", { message: "this should trigger oters to update" })
 
-                // location.reload();
-
-            }
-
-        )
-
+        $("#emailInput").val("");
+        $("passwordInput").val("");
     }
 
-    $("#suform-button").on("click", function(event) {
+
+    $(".signup").on("submit", function(event) {
 
         event.preventDefault();
-        console.log("hello")
+
         var file = document.querySelector('#dogspic').files[0];;
 
         getBase64(file, cb);
+
+
+        // Getting references to our form and input
+
+
+        // When the signup button is clicked, we validate the email and password are not blank
+
+
+        // If we have an email and password, run the signUpUser function
+        // signUpUser(userData.email, userData.password);
 
 
 
@@ -88,3 +108,20 @@ $(document).ready(function() {
 
 
 })
+
+// Does a post to the signup route. If succesful, we are redirected to the members page
+// Otherwise we log any errors
+// function signUpUser(email, password) {
+//     $.post("api/signup", {
+//         email: email,
+//         password: password
+//     }).then(function(data) {
+//         window.location.replace(data);
+//         // If there's an error, handle it by throwing up a boostrap alert
+//     }).catch(handleLoginErr);
+// }
+
+function handleLoginErr(err) {
+    $("#alert .msg").text(err.responseJSON);
+    $("#alert").fadeIn(500);
+}
