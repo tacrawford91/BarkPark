@@ -1,0 +1,67 @@
+.userDiv {
+    width: 100%;
+    height: 106px;
+    border: 1px solid black;
+    border-radius: 15px;
+    margin-bottom: 5px;
+    background: #868F9B;
+    opacity: 0.9;
+}
+.userDiv:hover {
+    background: #2eb82e;
+}
+
+img.userImg {
+    width: 80px;
+    height: 92px;
+    float: left;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    margin-left: 1%;
+    border-radius: 10px;
+}
+h4.userName {
+    text-align: center;
+    margin: 0
+}
+h4.userBreed {
+    text-align: center;
+    margin: 0
+}
+h5.userOwner {
+    text-align: center;
+    margin: 0;
+}
+h4.userThumbsUp {
+    text-align: center;
+    margin: 0;
+    font-size: 26px;
+    float: left;
+    margin-left: 10%;
+}
+h4.userThumbsDown {
+    text-align: center;
+    margin: 0;
+    float: right;
+    margin-right: 10%;
+    font-size: 26px;
+}
+button.plusOne {
+    border-radius: 11px;
+    width: 60px;
+    font-size: 19px;
+}
+button.plusOne:hover {
+    background: white;
+    color: black
+}
+
+button.downOne {
+    border-radius: 11px;
+    width: 60px;
+    font-size: 19px;
+}
+button.downOne:hover {
+    background: red;
+    color: black;
+}
