@@ -5,16 +5,18 @@ var router = express.Router();
 var db = require("../models");
 
 var path = require("path");
-
+var isAuthenticated = require("../config/middleware/isAuthenticated")
 router.get("/", (req, res) => {
     console.log(req.app.io);
+
     //send landing page
     res.sendFile(path.join(__dirname, "../views/main.html"));
 });
 
 
-router.get("/members", (req, res) => {
+router.get("/members", isAuthenticated, function(req, res) {
     //send landing page
+
     res.sendFile(path.join(__dirname, "../views/memberOnly.html"));
 });
 
