@@ -2,7 +2,7 @@ var map;
 var infowindow;
 var myMarker = [];
 var my
-var socket = io.connect("http://localhost:3000");
+var socket = io.connect("https://bark-park-woof.herokuapp.com/");
 
 function initMap() {
     var chicago = {
