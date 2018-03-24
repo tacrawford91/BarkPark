@@ -65,3 +65,44 @@ button.downOne:hover {
     background: red;
     color: black;
 }
+
+#style-8::-webkit-scrollbar-track
+{
+    border: 1px solid black;
+    background-color: #F5F5F5;
+}
+#style-8::-webkit-scrollbar
+{
+    width: 10px;
+    background-color: #F5F5F5;
+}
+#style-8::-webkit-scrollbar-thumb
+{
+    background-color: green;    
+}
+
+#suform-button:hover {
+        background: white;
+        color: green;
+}
+
+input[type="ownersname"],input[type="dogsname"],input[type="breed"],input[type="weight"],input[type="age"],input[type="file"]
+textarea {
+    height: 40px;
+    width: 100%;
+    border: none;
+    background: white;
+    border-bottom: 2px solid #EEE;
+    color: #354052;
+    padding: 0px 10px;
+    opacity: 1;
+    -webkit-transition: 0.2s border-color, 0.2s opacity;
+    transition: 0.2s border-color, 0.2s opacity;
+}
+
+input[type="ownersname"]:focus,input[type="dogsname"]:focus,input[type="breed"]:focus,input[type="weight"]:focus,input[type="age"]:focus,input[type="file"]:focus
+textarea:focus {
+    border-color: #2eb82e;
+    ;
+    opacity: 1;
+}
