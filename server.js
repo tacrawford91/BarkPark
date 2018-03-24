@@ -46,11 +46,11 @@ db.sequelize.sync({force:false}).then(function() {
     io.on('connection', function (socket) {
       console.log("Socket connected on port " + PORT);
       
-      io.emit("test1", {test: "can you see this?"})
+      // io.emit("test1", {test: "can you see this?"})
 
       socket.on("dogCountUpdate", function(data){
       io.sockets.emit("dogCountUpdate", {data});
-      console.log(data);
+      // console.log(data);
       })
   });
 
