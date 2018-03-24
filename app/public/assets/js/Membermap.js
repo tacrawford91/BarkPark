@@ -100,6 +100,7 @@ function addMarker(data) {
                     $('#myModal').modal('show');
                     var indexPlusOne = Number(i) + 1
                     $.get("/api/park/" + indexPlusOne, function(dataBack) {
+                        $("#updateTime").empty();
                         var lastUpdatedTime = dataBack["updatedAt"];
                         lastUpdatedTime = lastUpdatedTime.slice(0, 10) + " " + lastUpdatedTime.slice(11, 19);
                         var timeDiff = Math.floor((Date.now() - new Date(lastUpdatedTime).getTime()) / (1000 * 60 * 60) + 5);
@@ -114,7 +115,6 @@ function addMarker(data) {
                             $("#updateTime").append(parkHeaderDiv);
 
                         } else {
-                            s
                             var updatedInfo = $("<h3>").addClass("lastUpdated").text("Updated " + timeDiff + " hours ago")
                             parkHeaderDiv.append(parkNameDiv, updatedInfo)
                             $("#updateTime").append(parkHeaderDiv);
