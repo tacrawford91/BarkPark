@@ -96,7 +96,7 @@ function addMarker(data) {
                 $.get("/api/user/park/" + id, function(myData) {
                     $("#userInfor").empty()
                     var image = new Image();
-                    console.log(myData)
+                    // console.log(myData)
                     myData.forEach(element => {
                         var userDiv = $("<div>").addClass("userDiv"); // $("#userInfor").append(JSON.stringify(element["dog_name"]).replace(/\"/g, "") + "<br>")("userDiv");
                         var userImg = $("<img>").attr("src", element.picture).addClass("userImg");
@@ -148,7 +148,7 @@ function addMarker(data) {
             }
         })(marker, i));
         socket.on("dogCountUpdate", function(data) {
-            console.log(data.data.dogCountUpdate.marker);
+            // console.log(data.data.dogCountUpdate.marker);
             var mymark = myMarker[data.data.dogCountUpdate.marker]
                 // console.log(mymark)
             $.ajax({

@@ -87,14 +87,10 @@ function addMarker(data) {
         var infowindow = new google.maps.InfoWindow();
         google.maps.event.addListener(marker, 'click', (function(marker, i) {
             return function() {
-                // $.post("/api/park"+data[i].id,{},function(res){
-
-                // })
                 $("#updateTime").empty()
                 marker.setAnimation(google.maps.Animation.BOUNCE)
                 setTimeout(function() { marker.setAnimation(null); }, 2000);
                 $.get("/api/parkall", function(result) {
-                    // $(".firstModalBody").empty();
                     $(".firstModalTitle").text(data[i].park_name)
                     $(".secondFooter").empty()
                     $(".secondFooter").append(`<p class="text-center"><button data-id=${i} type="button" id="submitData" class="btn btn-default" data-dismiss="modal">Submit</button></p>
@@ -105,7 +101,6 @@ function addMarker(data) {
                 })
                 var indexPlusOne = Number(i) + 1
                 $.get("/api/park/" + indexPlusOne, function(dataBack) {
-                    // parkHeaderDiv.append(data[i].park_name + "<br>");
                     var lastUpdatedTime = dataBack["updatedAt"];
                     lastUpdatedTime = lastUpdatedTime.slice(0, 10) + " " + lastUpdatedTime.slice(11, 19);
                     var timeDiff = Math.floor((Date.now() - new Date(lastUpdatedTime).getTime()) / (1000 * 60 * 60) + 5);
@@ -115,15 +110,11 @@ function addMarker(data) {
                     parkNameDiv.append(parkName);
                     var updatedInfo = $("<h3>").addClass("lastUpdated").text()
                     if (timeDiff < 1) {
-                        // parkHeaderDiv.append("Updated less than an hour ago");
-                        // $("#updateTime").append(parkHeaderDiv)
                         var updatedInfo = $("<h3>").addClass("lastUpdated").text("Updated less than an hour ago")
                         parkHeaderDiv.append(parkNameDiv, updatedInfo)
                         $("#updateTime").append(parkHeaderDiv);
 
-                    } else {
-                        // parkHeaderDiv.append("Updated " + timeDiff + " hours ago");
-                        // $("#updateTime").append(parkHeaderDiv);
+                    } else {s
                         var updatedInfo = $("<h3>").addClass("lastUpdated").text("Updated " + timeDiff + " hours ago")
                         parkHeaderDiv.append(parkNameDiv, updatedInfo)
                         $("#updateTime").append(parkHeaderDiv);
@@ -134,7 +125,7 @@ function addMarker(data) {
         $(document).on("click", "#seeUsers", function() {
             var btnID = $(this).attr("data-id")
             var c = Number(btnID) + 1
-            console.log(c)
+            // console.log(c)
             $.get("/api/user/park/" + c, function(myData) {
                 $("#userInfor").empty()
                 myData.forEach(element => {
@@ -164,7 +155,7 @@ function addMarker(data) {
                     type: "PUT",
                     data: { currentParkID: rightID }
                 }).then(function(data) {
-                    console.log(data)
+                    // console.log(data)
                     $.get("/api/user/park/" + rightID, function(myData) {
                         $("#userInfor").empty()
                         $("#myModal").modal("hide")
@@ -185,13 +176,13 @@ function addMarker(data) {
                 })
 
             })
-            console.log(dogCountUpdate)
+            // console.log(dogCountUpdate)
             $.ajax({
                     url: `/api/park/newDog/${dogCountUpdate.parkID}`,
                     method: "PUT",
                     data: dogCountUpdate
                 }).then((data) => {
-                    console.log(`updated park id${dogCountUpdate.parkID} with ${dogCountUpdate.dog_count}`);
+                    // console.log(`updated park id${dogCountUpdate.parkID} with ${dogCountUpdate.dog_count}`);
                     socket.emit("dogCountUpdate", { dogCountUpdate });
                 })
                 // setNumber(marker)
@@ -206,7 +197,7 @@ function addMarker(data) {
             // var c = Number(btnID) + 1
             // console.log(c)
             $.get(`/api/user/thumbs/${userID}`, function(myData) {
-                console.log(myData);
+                // console.log(myData);
                 var updateThumbsUp = Number(myData.thumbsUp) + 1;
                 dogThumbUpdate = {
                     thumbsUp: updateThumbsUp,
@@ -217,7 +208,7 @@ function addMarker(data) {
                     method: "PUT",
                     data: dogThumbUpdate
                 }).then((data) => {
-                    console.log("thumbUpdated");
+                    // console.log("thumbUpdated");
                 })
             });
         });
@@ -226,7 +217,7 @@ function addMarker(data) {
             var userID = $(this).attr("data-id");
             $(`.hide${userID}`).hide();
             $.get(`/api/user/thumbs/${userID}`, function(myData) {
-                console.log(myData);
+                // console.log(myData);
                 var updateThumbsDown = Number(myData.thumbsDown) + 1;
                 var dogThumbUpdate = {
                     thumbsUp: myData.thumbsUp,
@@ -237,7 +228,7 @@ function addMarker(data) {
                     method: "PUT",
                     data: dogThumbUpdate
                 }).then((data) => {
-                    console.log("thumbUpdated");
+                    // console.log("thumbUpdated");
                 })
             });
         });
@@ -253,7 +244,7 @@ function addMarker(data) {
             }
         })(marker, i));
         socket.on("dogCountUpdate", function(data) {
-            console.log(data.data.dogCountUpdate.marker);
+            // console.log(data.data.dogCountUpdate.marker);
             var mymark = myMarker[data.data.dogCountUpdate.marker]
             $.ajax({
                 url: `/api/park/${data.data.dogCountUpdate.parkID}`,
