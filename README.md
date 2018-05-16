@@ -3,3 +3,7 @@
 Technologies Leveraged:HTML5,CSS3,Bootstrap4, JS, Jquery,Node, Express,Socket.IO,Google Maps API, Sequelize, MySQL</center>
 
 ##### link to site: https://bark-park-woof.herokuapp.com/
+
+
+Welcome to **BarkPark**
+![Screenshot](https://github.com/tacrawford91/BarkPark/blob/master/app/public/assets/image/barkPark1.PNG) <br>
